@@ -11,8 +11,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Bettina's portfolio",
-  description: 'Bettina is a software engineer and designer.'
+  title: "Hardi's portfolio",
+  description: 'Hardi is a Meteorologist and climate enthusiast.'
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
         <Animations>
           <main>
             <Header />
-            <div className="flex flex-col bg-background text-foreground">
+            <div className="flex flex-col bg-white text-slate-900">
               <main className={`flex-grow ${inter.className}`}>{children}</main>
               <Analytics />
             </div>

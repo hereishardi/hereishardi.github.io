@@ -6,13 +6,14 @@ import Link from 'next/link';
 
 export default function Description() {
   const phrase1 =
-    'A software engineer with a passion for innovation and\n' +
-    'cutting-edge technology.\n\n ';
+    'A meteorologist transforming complex atmospheric data into decision-ready insights for climate resilience and operational services.\n\n ';
 
   const phrase2 =
-    'Particularly interested in the intersection of art, design, and ' +
-    'software. I believe that these disciplines can be combined to ' +
-    'create truly transformative experiences.';
+    'Passionate about advancing our capacity to monitor and model the atmosphere ' +
+    'at the intersection of physical science and modern tech. Whether contributing ' +
+    'to AI-driven atmospheric projects, climate research, or operational services. ' +
+    'I am dedicated to building the advanced tools that enhance the accuracy, ' +
+    'reliability, and impact of weather data for a resilient future.';
   const description = useRef(null);
   const isInView = useInView(description);
 
@@ -38,7 +39,7 @@ export default function Description() {
             </span>
           ))}
         </p>
-        <p className="m-0 gap-2 leading-snug sm:text-4xl">
+        <p className="m-0 gap-2 leading-snug sm:text-2xl">
           {phrase2.split(' ').map((word, index) => (
             <span
               key={index}
@@ -59,19 +60,16 @@ export default function Description() {
         <motion.p
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
-          className="m-0 pb-3 font-light sm:text-lg"
+          className="m-0 pb-3 font-light sm:text-2xl"
         >
-          Currently the founding full stack software engineer @Catapult a DeFi
-          startup.
+          Recent MSc graduate from the University of Reading.
         </motion.p>
         <motion.p
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
           className="m-0 text-lg font-light"
         >
-          My projects have received multiple awards in the past, and I am always
-          looking for new and innovative ways to use my skills to make a
-          positive impact on the world.
+          My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualization. I have extensive experience managing complex observational weather networks and performing high-resolution atmospheric modeling to provide actionable insights for urban and regional climate resilience.
         </motion.p>
         <div data-scroll-speed={0.1}>
           <Link href={'/about'}>

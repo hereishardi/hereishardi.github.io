@@ -30,16 +30,16 @@ export default function About() {
   return (
     <div className="relative overflow-hidden">
       <Layout title="About Me" center>
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <section className="grid gap-8 py-12 md:gap-12 lg:grid-cols-5 lg:gap-16">
+        <div className="mx-auto max-w-6xl px-3 sm:px-6 lg:px-8">
+          <section className="grid gap-8 py-6 md:gap-12 lg:grid-cols-5 lg:gap-16">
             <AnimatedSection
               animation="fade-right"
               className="lg:sticky lg:top-32 lg:col-span-2 lg:self-start"
             >
               <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/profile2.jpg"
-                  alt="Bettina"
+                  src="/images/IMG_9614.jpg"
+                  alt="Hardi"
                   fill
                   className="object-cover object-top"
                   priority
@@ -51,7 +51,7 @@ export default function About() {
             <div className="space-y-8 lg:col-span-3">
               <AnimatedSection animation="fade-up">
                 <TextReveal
-                  text="Design engineer turned software engineer. I approach engineering through a design lens, interested in both the technical architecture and the human experience."
+                  text="A Meteorologist with a background in Physics. I turned my childhood obsession with observing clouds and sunsets into a career as a weather expert."
                   className="text-xl font-medium leading-relaxed text-foreground/90 sm:text-2xl"
                   as="p"
                   highlightWords={['design', 'human']}
@@ -62,11 +62,10 @@ export default function About() {
               <AnimatedSection animation="fade-up" delay={0.1}>
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">
-                    My Superpower
+                    My Vision
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    Taking abstract ideas and turning them into tangible,
-                    scalable products that people actually want to use.
+                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into actionable insights for a resilient future.
                   </p>
                 </div>
               </AnimatedSection>
@@ -74,13 +73,10 @@ export default function About() {
               <AnimatedSection animation="fade-up" delay={0.2}>
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">
-                    Beyond Code
+                    Beyond Weather
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    I speak at IRL developer events, I write technical posts,
-                    run hands-on workshops, and run a devRel Guild. I thrive at
-                    the intersection of technical depth, creative
-                    problem-solving, and community building.
+                    Outside of Meteorology, I love to run and read - I spend my free time exploring & reading about neuroscience and psychology to understand the systems that govern our mind just as I study the systems that govern our skies.
                   </p>
                 </div>
               </AnimatedSection>
@@ -92,38 +88,23 @@ export default function About() {
             <AnimatedSection animation="fade-up">
               <div className="rounded-2xl border border-foreground/5 bg-white p-6 shadow-sm sm:p-8">
                 <h2 className="mb-4 text-xl font-bold text-foreground sm:text-2xl">
-                  Education & Recognition
+                  Education
                 </h2>
+
+                {/* MSc Section */}
                 <p className="mb-6 text-foreground/70">
                   At{' '}
                   <span className="font-semibold text-foreground">
-                    Imperial College London
+                    University of Reading
                   </span>
-                  , I studied design engineering, a unique program bridging
-                  creative thinking, design, and engineering, teaching us the
-                  full process of building a technical product from concept to
-                  launch.
+                  , I completed an <span className="font-semibold text-foreground">MSc in Applied Meteorology and Climate</span>, a world-leading program that bridged advanced physical theory with practical forecasting systems. My training focused on analysing meteorological data, from studying Synoptic & Boundary Layer Meteorology and Extreme Weather to Remote Sensing and Flood Risk.
+                  <br /><br />
+                  For my dissertation, I performed a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin, utilising reanalysis datasets to provide insights into urban climate resilience.
+                  <br /><br />
+                  Previously, I earned my <span className="font-semibold text-foreground">BSc in Physics</span>, which provided the foundational training in mathematical modeling, thermodynamics, and fluid dynamics necessary for complex atmospheric research.
+                  <br /><br />
+                  This combination of physics and meteorology has equipped me with a unique skill set to tackle the challenges of modern weather and climate science.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    href="/projects/m31"
-                    className="group inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2 text-sm text-amber-600 transition-all hover:bg-amber-500/20"
-                  >
-                    🏆 Andromeda — Creative Conscience Gold
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
-                  <Link
-                    href="/projects/axo"
-                    className="group inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-2 text-sm text-pink-600 transition-all hover:bg-pink-500/20"
-                  >
-                    🏛️ AxoWear — Design Museum London
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
-                </div>
               </div>
             </AnimatedSection>
           </section>
@@ -133,7 +114,7 @@ export default function About() {
             <AnimatedSection animation="fade-up">
               <div className="mb-12 text-center">
                 <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                  Where I&apos;ve Been
+                  Professional Experience
                 </h2>
               </div>
             </AnimatedSection>
@@ -145,7 +126,7 @@ export default function About() {
             <AnimatedSection animation="fade-up">
               <div className="mb-8 text-center">
                 <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                  Tools & Technologies
+                  Technical & Professional Skills
                 </h2>
               </div>
             </AnimatedSection>
@@ -157,7 +138,7 @@ export default function About() {
             <section className="py-16">
               <AnimatedSection animation="fade-up">
                 <Link
-                  href="https://github.com/bettinasosa"
+                  href="https://github.com/hereishardi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block transition-transform hover:scale-[1.01]"

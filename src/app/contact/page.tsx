@@ -19,7 +19,7 @@ export default function Contact() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('bettinasosarohl@gmail.com');
+    navigator.clipboard.writeText('hardichittaliya08gmail.com');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
           <div className="flex justify-between uppercase">
             <p className="m-0">Ldn </p>
-            <Link href={'https://www.linkedin.com/in/bettina-sosa/'}>
+            <Link href={'www.linkedin.com/in/hardi08'}>
               <TextDisperse setBackground={setBackground}>
                 <p>→Linkedin</p>
               </TextDisperse>
@@ -70,7 +70,7 @@ export default function Contact() {
               <p className="m-0">→Email</p>
             </TextDisperse>
 
-            <Link href={'https://github.com/bettinasosa'}>
+            <Link href={'https://github.com/hereishardi'}>
               <TextDisperse setBackground={setBackground}>
                 <p>→Github</p>
               </TextDisperse>

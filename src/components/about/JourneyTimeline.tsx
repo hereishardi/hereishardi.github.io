@@ -18,51 +18,24 @@ interface TimelineItem {
 
 const journeyData: TimelineItem[] = [
   {
-    year: 'Now',
-    title: 'Freelance Engineer & DevRel',
-    company: 'Independent',
-    description:
-      'I work independently across software engineering and DevRel. I lead the DevRel Guild at Myosin, work with teams such as WalletConnect, and I’m building HiveMind with a team of five, an AI product that scales developer and marketing workflows. My work spans the full funnel: reference apps, SDK and docs improvements, content, workshops, and builder programs.',
+    year: 'Jan 2026 - Present',
+    title: 'Board Member - Board on Enterprise Decision Support (BEDS)',
+    company: 'American Meteorological Society',
+    description: 'Contributing to strategic initiatives and decision support systems for the meteorological community.',
     highlight: true
   },
   {
-    year: '2025',
-    title: 'Head of Engineering & Developer Relations',
-    company: 'Partisia Blockchain',
-    companyUrl: 'https://partisiablockchain.com/',
-    description:
-      'Led Engineering and DevRel for privacy-first infrastructure and multi-party computation. Shipped production smart contracts, revamped developer docs, and built the developer funnel through workshops, hackathons, and open-source. Launched their first bounty program resulting in the biggest developer contribution to their codebase to date.'
+    year: 'June 2025 - Sep 2025',
+    title: 'Graduate Research Assistant',
+    company: 'University of Reading',
+    description: 'Conducted a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin. Utilized Python for statistical analysis and geospatial visualidsation of multi-network datasets from 25+ weather stations to assess urban climate resilience.',
   },
   {
-    year: '2024',
-    title: 'AI & Trading Systems',
-    company: 'Catapult Labs',
-    companyUrl: 'https://www.catapult.xyz/',
-    description:
-      'Built an AI co-pilot for digital asset trading that unifies client conversations across chat clients using OpenAI models.'
+    year: 'June 2025 - July 2025',
+    title: 'Summer Assistant',
+    company: 'UPP Ltd',
+    description: 'Managed operational tasks and cross-team coordination in a fast-paced environment. Focused on accuracy, problem-solving, and meeting strict operational deadlines.',
   },
-  {
-    year: '2022',
-    title: 'DeFi Protocols & Smart Contracts',
-    company: 'Catapult Labs',
-    companyUrl: 'https://www.catapult.xyz/',
-    description:
-      'Developed decentralised financial primitives for OTC crypto markets, including collateral management and margin trading. Learned Solidity for on-chain financial products.'
-  },
-  {
-    year: '2021',
-    title: 'Founding Full-Stack Engineer',
-    company: 'Sojo',
-    companyUrl: 'https://www.sojo.uk/',
-    description:
-      'Shipped the core platform for clothing repairs and customisation, from product design through deployment.'
-  },
-  {
-    year: '2021',
-    title: 'Design Engineering MEng',
-    company: 'Imperial College London',
-    description: 'Graduated from my masters with honours.'
-  }
 ];
 
 export default function JourneyTimeline() {
@@ -136,22 +109,19 @@ export default function JourneyTimeline() {
             ref={(el) => {
               if (el) itemsRef.current[i] = el;
             }}
-            className={`relative flex items-start gap-8 ${
-              i % 2 === 0
-                ? 'md:flex-row md:text-right'
-                : 'md:flex-row-reverse md:text-left'
-            }`}
+            className={`relative flex items-start gap-8 ${i % 2 === 0
+              ? 'md:flex-row md:text-right'
+              : 'md:flex-row-reverse md:text-left'
+              }`}
           >
             {/* Content */}
             <div
-              className={`ml-16 flex-1 md:ml-0 ${
-                i % 2 === 0 ? 'md:pr-16' : 'md:pl-16'
-              }`}
+              className={`ml-16 flex-1 md:ml-0 ${i % 2 === 0 ? 'md:pr-16' : 'md:pl-16'
+                }`}
             >
               <div
-                className={`group relative rounded-2xl border border-foreground/5 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md ${
-                  item.highlight ? 'border-primary/20 shadow-md' : ''
-                }`}
+                className={`group relative rounded-2xl border border-foreground/5 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md ${item.highlight ? 'border-primary/20 shadow-md' : ''
+                  }`}
               >
                 <span className="mb-2 inline-block rounded-full bg-foreground/10 px-3 py-1 text-sm font-medium text-foreground">
                   {item.year}
@@ -180,9 +150,8 @@ export default function JourneyTimeline() {
             {/* Timeline dot */}
             <div className="absolute left-6 top-6 z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 border-primary/40 bg-background md:left-1/2 md:-translate-x-1/2">
               <div
-                className={`h-2 w-2 rounded-full ${
-                  item.highlight ? 'bg-primary' : 'bg-primary/50'
-                }`}
+                className={`h-2 w-2 rounded-full ${item.highlight ? 'bg-primary' : 'bg-primary/50'
+                  }`}
               />
             </div>
 

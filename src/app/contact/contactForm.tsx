@@ -28,7 +28,7 @@ export function ContactForm() {
 
   const onSubmit = (data: ContactFormData) => {
     const { subject, email, body } = data;
-    window.location.href = `mailto:bettinasosarohl@gmail.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:hardichittaliya08@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}%0D%0A%0D%0AFrom: ${encodeURIComponent(
       email
@@ -43,8 +43,7 @@ export function ContactForm() {
             Let&apos;s talk!
           </h2>
           <p className="text-primary-950/70 dark:text-primary-200/70 max-w-lg text-lg sm:text-xl">
-            I&apos;m always looking for new and innovative ways to use my
-            skills.
+            Feel free to reach out for collaborations, questions, or just a friendly chat about the weather!
           </p>
         </div>
         <div className="col-span-2">
@@ -55,10 +54,10 @@ export function ContactForm() {
             >
               <FormField
                 control={form.control}
-                name="subject"
+                name=""
                 render={({ field }) => (
                   <FormItem className="flex flex-col space-y-1">
-                    <FormLabel className="text-xl">Subject</FormLabel>
+                    <FormLabel className="text-xl">Info</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Full name"

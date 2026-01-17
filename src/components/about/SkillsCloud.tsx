@@ -1,6 +1,5 @@
 'use client';
-
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react'; // Add React here
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Magnetic from '@/components/animations/magnetic';
@@ -9,40 +8,46 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface Skill {
   name: string;
-  category: 'frontend' | 'backend' | 'web3' | 'design' | 'other';
+  category: 'data' | 'modelling' | 'technical' | 'tools' | 'professional';
 }
 
 const skills: Skill[] = [
-  { name: 'React', category: 'frontend' },
-  { name: 'Next.js', category: 'frontend' },
-  { name: 'TypeScript', category: 'frontend' },
-  { name: 'Tailwind CSS', category: 'frontend' },
-  { name: 'GSAP', category: 'frontend' },
-  { name: 'Framer Motion', category: 'frontend' },
-  { name: 'Node.js', category: 'backend' },
-  { name: 'PostgreSQL', category: 'backend' },
-  { name: 'GraphQL', category: 'backend' },
-  { name: 'Solidity', category: 'web3' },
-  { name: 'Web3.js', category: 'web3' },
-  { name: 'DeFi', category: 'web3' },
-  { name: 'Figma', category: 'design' },
-  { name: 'Product Design', category: 'design' },
-  { name: 'AI/ML', category: 'other' },
-  { name: 'OpenAI', category: 'other' },
-  { name: 'DevRel', category: 'other' },
-  { name: 'Public Speaking', category: 'other' }
+  // Atmospheric Data & Analysis
+  { name: 'Meteorological Data Analysis', category: 'data' },
+  { name: 'Statistical Data Analysis', category: 'data' },
+  { name: 'Climate Data Interpretation', category: 'data' },
+  { name: 'Synoptic & Model Chart Interpretation', category: 'data' },
+
+  // Modelling & Research
+  { name: 'Weather and Climate Models (WRF, OpenIFS)', category: 'modelling' },
+  { name: 'Reanalysis of Data (ERA5, GloFAS)', category: 'modelling' },
+
+  // Programming & Technical
+  { name: 'Python', category: 'technical' },
+  { name: 'Matlab', category: 'technical' },
+  { name: 'SQL', category: 'technical' },
+  { name: 'QGIS', category: 'technical' },
+  { name: 'Linux', category: 'technical' },
+
+  // Scientific Tools
+  { name: 'LaTeX', category: 'tools' },
+  { name: 'MS Office', category: 'tools' },
+  { name: 'Mendeley', category: 'tools' },
+
+  // Professional
+  { name: 'Problem Solving', category: 'professional' },
+  { name: 'Effective Communication', category: 'professional' },
+  { name: 'Teamwork', category: 'professional' },
+  { name: 'Adaptability', category: 'professional' },
+  { name: 'Time Management', category: 'professional' }
 ];
 
 const categoryColors: Record<string, string> = {
-  frontend:
-    'bg-blue-600/15 text-blue-800 border-blue-600/30 hover:bg-blue-600/25',
-  backend:
-    'bg-green-600/15 text-green-800 border-green-600/30 hover:bg-green-600/25',
-  web3: 'bg-purple-600/15 text-purple-800 border-purple-600/30 hover:bg-purple-600/25',
-  design:
-    'bg-pink-600/15 text-pink-800 border-pink-600/30 hover:bg-pink-600/25',
-  other:
-    'bg-amber-600/15 text-amber-800 border-amber-600/30 hover:bg-amber-600/25'
+  data: 'bg-blue-600/15 text-blue-800 border-blue-600/30 hover:bg-blue-600/25', // Atmospheric/Oceanic Blue
+  modelling: 'bg-indigo-600/15 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/25', // Deep Science Indigo
+  technical: 'bg-emerald-600/15 text-emerald-800 border-emerald-600/30 hover:bg-emerald-600/25', // Technical Green
+  tools: 'bg-slate-600/15 text-slate-800 border-slate-600/30 hover:bg-slate-600/25', // Tool Gray
+  professional: 'bg-amber-600/15 text-amber-800 border-amber-600/30 hover:bg-amber-600/25' // Warm Amber
 };
 
 export default function SkillsCloud() {
@@ -91,21 +96,42 @@ export default function SkillsCloud() {
   }, []);
 
   return (
-    <div ref={containerRef} className="flex flex-wrap justify-center gap-3">
-      {skills.map((skill, i) => (
-        <Magnetic key={skill.name}>
-          <div
-            ref={(el) => {
-              if (el) skillsRef.current[i] = el;
-            }}
-            className={`cursor-default rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 md:px-6 md:py-3 md:text-base ${
-              categoryColors[skill.category]
-            }`}
-          >
-            {skill.name}
-          </div>
-        </Magnetic>
-      ))}
+    <div ref={containerRef} className="flex flex-col items-center gap-3">
+      {/* Row 1: Technical Skills */}
+      <div className="flex flex-wrap justify-center gap-3">
+        {skills
+          .filter((s) => s.category !== 'professional')
+          .map((skill, i) => (
+            <Magnetic key={skill.name}>
+              <div
+                ref={(el) => { if (el) skillsRef.current[i] = el; }}
+                className={`cursor-default rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 md:px-6 md:py-3 md:text-base ${categoryColors[skill.category]}`}
+              >
+                {skill.name}
+              </div>
+            </Magnetic>
+          ))}
+      </div>
+
+      {/* Row 2: Professional Skills (New Line with NO extra gaps) */}
+      <div className="flex flex-wrap justify-center gap-3">
+        {skills
+          .filter((s) => s.category === 'professional')
+          .map((skill, i) => (
+            <Magnetic key={skill.name}>
+              <div
+                ref={(el) => {
+                  // Keep the index continuous for GSAP animations
+                  const index = skills.filter((s) => s.category !== 'professional').length + i;
+                  if (el) skillsRef.current[index] = el;
+                }}
+                className={`cursor-default rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 md:px-6 md:py-3 md:text-base ${categoryColors[skill.category]}`}
+              >
+                {skill.name}
+              </div>
+            </Magnetic>
+          ))}
+      </div>
     </div>
   );
 }
