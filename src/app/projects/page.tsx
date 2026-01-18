@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout';
 import Image from 'next/image';
+import { getImagePath } from '@/utils/imagePath';
 
 const myProjects = [
   {
@@ -70,7 +71,7 @@ export default function MyNewProjectsPage() {
                 {/* Image Container */}
                 <div className="w-full md:w-1/2 aspect-video bg-gray-100 relative overflow-hidden rounded-xl border border-gray-200 shadow-sm">
                   <Image
-                    src={activeProjectIndex === index ? project.images[imgIndex] : project.images[0]}
+                    src={getImagePath(activeProjectIndex === index ? project.images[imgIndex] : project.images[0])}
                     alt={project.title}
                     fill
                     className="object-cover transition-opacity duration-500"

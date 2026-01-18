@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Magnetic from '@/components/animations/magnetic';
 import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
+import { getImagePath } from '@/utils/imagePath';
 
 // Define the structure for our multi-city weather
 interface CityWeather {
@@ -78,7 +79,7 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'profile'}
-                src={`/images/profile2.jpg`}
+                src={getImagePath(`/images/profile2.jpg`)}
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
@@ -105,7 +106,6 @@ export default function ContactInfo() {
           <RoundedButton>hardichittaliya08@gmail.com</RoundedButton>
         </div>
 
-        {/* Updated alignment: Added items-start to keep all sections level */}
         <div className="mt-20 flex flex-col justify-between p-5 2xs:mt-52 sm:mx-[100px] sm:mt-48 sm:flex-row items-start">
           <div className="flex flex-col gap-2 mb-10 sm:max-w-md">
             <p className="text-base font-medium">
@@ -118,9 +118,7 @@ export default function ContactInfo() {
             </p>
           </div>
 
-          {/* Grouping the three data columns together for alignment */}
           <div className="flex flex-col sm:flex-row items-start gap-12 mb-10 sm:mb-0">
-            {/* Column 1: Version */}
             <span className="flex flex-col gap-3">
               <h3 className="m-0 cursor-default p-1 text-xs uppercase tracking-widest text-gray-500">
                 Version
@@ -128,7 +126,6 @@ export default function ContactInfo() {
               <p className="relative m-0 p-1 text-sm">2026 © Edition</p>
             </span>
 
-            {/* Column 2: Live Weather Updates */}
             <span className="flex flex-col gap-3 min-w-[200px]">
               <h3 className="m-0 cursor-default p-1 text-xs uppercase tracking-widest text-gray-500 border-b border-white/10">
                 Live Weather Updates
@@ -150,7 +147,6 @@ export default function ContactInfo() {
               </div>
             </span>
 
-            {/* Column 3: Socials */}
             <span className="flex flex-col gap-3">
               <h3 className="m-0 cursor-default text-xs uppercase tracking-widest text-gray-500">
                 Socials

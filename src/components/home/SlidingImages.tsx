@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
+import { getImagePath } from '@/utils/imagePath';
 
 // Define the structure of your data
 interface SliderItem {
@@ -17,7 +18,6 @@ interface SlidingImagesProps {
   slider2: SliderItem[];
 }
 
-// THE FIX: Destructure the props inside the function arguments
 export default function SlidingImages({ slider1, slider2 }: SlidingImagesProps) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -25,7 +25,6 @@ export default function SlidingImages({ slider1, slider2 }: SlidingImagesProps) 
     offset: ['start end', 'end start']
   });
 
-  // Ensure hooks are called unconditionally
   const x1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const x2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
@@ -42,7 +41,7 @@ export default function SlidingImages({ slider1, slider2 }: SlidingImagesProps) 
               <Image
                 fill={true}
                 alt={'image'}
-                src={`/images/${project.src}`}
+                src={getImagePath(`/images/${project.src}`)}
                 className="object-contain"
               />
             </div>
@@ -61,7 +60,7 @@ export default function SlidingImages({ slider1, slider2 }: SlidingImagesProps) 
               <Image
                 fill={true}
                 alt={'image'}
-                src={`/images/${project.src}`}
+                src={getImagePath(`/images/${project.src}`)}
                 className="object-contain"
               />
             </div>

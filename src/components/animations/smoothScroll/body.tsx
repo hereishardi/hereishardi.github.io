@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
+import { getImagePath } from '@/utils/imagePath';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +34,7 @@ export default function Body({
       <div className="flex h-[300px] w-full justify-between gap-[5%] sm:h-[700px]">
         <div ref={imageContainer} className="relative h-full w-[40%]">
           <Image
-            src={`/images/${body[selectedProject].src}`}
+            src={getImagePath(`/images/${body[selectedProject].src}`)}
             fill
             alt="project image"
             priority

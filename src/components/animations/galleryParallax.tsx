@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Lenis from '@studio-freight/lenis';
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
+import { getImagePath } from '@/utils/imagePath';
 
 const images = [
   'dresses/dress1.jpg',
@@ -83,7 +84,7 @@ const Column = ({ images, y }: ColumnProps) => {
           key={i}
           className="relative h-1/3 w-full overflow-hidden rounded-[1vw]"
         >
-          <Image src={`/images/${src}`} alt="image" fill />{' '}
+          <Image src={getImagePath(`/images/${src}`)} alt="image" fill />
         </div>
       ))}
     </motion.div>

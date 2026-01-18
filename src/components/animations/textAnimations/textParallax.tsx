@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Lenis from 'lenis';
 import { useEffect, useRef } from 'react';
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
+import { getImagePath } from '@/utils/imagePath';
 
 type SlideProps = {
   left: string;
@@ -39,7 +40,7 @@ const Phrase = ({ src }: { src: string }) => {
       <span className="relative aspect-[4/2] h-[7.5vw] overflow-hidden rounded-full">
         <Image
           style={{ objectFit: 'cover' }}
-          src={src}
+          src={getImagePath(src)}
           alt="image"
           fill
           sizes={'6'}
@@ -54,7 +55,6 @@ export default function TextParallax() {
 
   const { scrollYProgress } = useScroll({
     target: container,
-
     offset: ['start end', 'end start']
   });
 

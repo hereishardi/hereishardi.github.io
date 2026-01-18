@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getImagePath } from '@/utils/imagePath';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +35,7 @@ export default function Intro({
     });
 
     gsap.set(background.current, {
-      scale: 0.8 // Set the initial scale of the background image
+      scale: 0.8
     });
 
     timeline.to(
@@ -56,7 +57,7 @@ export default function Intro({
       >
         <div className="w-full rounded-3xl">
           <Image
-            src={images[1]}
+            src={getImagePath(images[1])}
             alt="hero image"
             fill
             priority
@@ -71,7 +72,7 @@ export default function Intro({
           className="absolute h-[475px] w-[350px] brightness-[70%]"
         >
           <Image
-            src={images[0]}
+            src={getImagePath(images[0])}
             alt="intro image"
             fill
             priority

@@ -3,12 +3,18 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
+// Helper function to handle basePath
+const getImagePath = (path: string) => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
+  return `${basePath}${path}`;
+};
+
 export default function Hero() {
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
       {/* Background Climate Strip Image */}
       <Image
-        src="/images/gallery/Climate_Strip.png"
+        src={getImagePath("/images/gallery/Climate_Strip.png")}
         alt="Climate Warming Stripes"
         fill
         className="object-cover opacity-100 brightness-120"
