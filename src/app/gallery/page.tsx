@@ -14,7 +14,7 @@ const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
-    date: "Oct '24",
+    date: "Oct &apos;24",
     description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
     images: [
       '/images/gallery/Dorset_1.jpg',
@@ -27,7 +27,7 @@ const galleryItems = [
   {
     id: 'ruao-2024',
     title: "Case Study at RUAO - Reading, UK",
-    date: "Nov '24",
+    date: "Nov &apos;24",
     description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
     images: [
       '/images/gallery/RUAO_1.jpg',
@@ -39,7 +39,7 @@ const galleryItems = [
   {
     id: 'thames-2025',
     title: "Thames River Visit - Reading",
-    date: "Feb '25",
+    date: "Feb &apos;25",
     description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
     images: [
       '/images/gallery/Thames_1.jpg',
@@ -52,7 +52,7 @@ const galleryItems = [
   {
     id: 'ecmwf-2025',
     title: "ECMWF Visit - Reading",
-    date: "Mar '25",
+    date: "Mar &apos;25",
     description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
     images: [
       '/images/gallery/ECMWF_1.jpg',
@@ -65,7 +65,7 @@ const galleryItems = [
   {
     id: 'met-office-2025',
     title: "Met Office Visit - Exeter, UK",
-    date: "July '25",
+    date: "July &apos;25",
     description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
     images: [
       '/images/gallery/Metoffice_1.jpg',
@@ -164,7 +164,7 @@ export default function Gallery() {
       <div className="min-h-screen bg-[#FAFAFA] px-4 py-16 md:px-8 lg:px-16">
         <div className="mb-20 text-center">
           <p className="text-xl font-medium text-blue-600/60">
-            Where I've been to so far!
+            Where I&apos;ve been to so far!
           </p>
         </div>
 
