@@ -77,7 +77,7 @@ function LetterDisplay({ word }: { word: string }) {
   return word.split('').map((letter, index) => (
     <span
       key={index}
-      className="letter inline-block text-5xl font-bold xs:text-6xl md:text-8xl lg:text-9xl xl:text-[130px] leading-tight"
+      className="letter inline-block text-5xl font-bold xs:text-5xl md:text-8xl lg:text-9xl xl:text-[130px] leading-tight"
     >
       {letter === ' ' ? '\u00A0' : letter}
     </span>
