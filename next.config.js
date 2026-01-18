@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',  // Add this line
   images: {
     domains: [
       'i.scdn.co',
@@ -9,7 +10,7 @@ const nextConfig = {
       'miro.medium.com',
       'cdn-images-1.medium.com'
     ],
-    unoptimized: false
+    unoptimized: true  // Change from false to true
   }
 };
 
