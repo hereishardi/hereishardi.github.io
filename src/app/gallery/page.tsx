@@ -6,7 +6,9 @@ import Layout from '@/components/layout';
 
 // Helper function to handle basePath
 const getImagePath = (path: string) => {
-  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
+  // Since your site is at the root (hardichittaliya.vercel.app), 
+  // we usually leave basePath empty.
+  const basePath = process.env.NODE_ENV === 'production' ? '' : '';
   return `${basePath}${path}`;
 };
 
@@ -70,8 +72,7 @@ const galleryItems = [
     images: [
       '/images/gallery/Metoffice_1.jpg',
       '/images/gallery/Metoffice_2.jpg',
-      '/images/gallery/Metoffice_3.jpg',
-      '/images/gallery/Metoffice_4.jpg'
+      '/images/gallery/Metoffice_3.jpg'
     ],
     tags: ['Climate Workshop']
   },
@@ -127,13 +128,22 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
       onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
+      {/* 1. PRELOADING BLOCK: Forces the browser to load all images in the background */}
+      <div className="hidden">
+        {item.images.map((src, i) => (
+          <img key={i} src={getImagePath(src)} alt="preload" />
+        ))}
+      </div>
+
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
         <Image
           src={getImagePath(item.images[currentIndex])}
           alt={item.title}
           fill
-          className="object-cover transition-opacity duration-500"
+          // 2. Faster transition duration (300ms instead of 500ms) feels snappier
+          className="object-cover transition-opacity duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={true} // 3. Prioritize loading these images
         />
         <div
           className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"

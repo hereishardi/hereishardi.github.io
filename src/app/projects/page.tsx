@@ -8,7 +8,7 @@ import { getImagePath } from '@/utils/imagePath';
 const myProjects = [
   {
     title: 'Dissertation: Analysis of Canopy Layer Urban Heat Island (CL-UHI) Intensity in Berlin (Supervisor: Russell Glazer and Sue Grimmond)',
-    description: `I investigated Berlin's Canopy Layer Urban Heat Island (CL-UHI) intensity using a case study - Urbisphere and multi-network observational datasets from 25+ weather stations. By implementing Python-based statistical analysis and geospatial visualisation, I quantified urban-rural temperature differences and diurnal variability. My findings successfully identified the significant cooling influence of site-specific characteristics like urban green spaces, providing critical evidence for improving city-scale climate resilience.`,
+    description: `I investigated Berlin's Canopy Layer Urban Heat Island (CL-UHI) intensity using a case study from the Urbisphere and multi-network observational datasets from 25+ weather stations. By implementing Python-based statistical analysis and geospatial visualisation, I quantified urban-rural temperature differences and diurnal variability. My findings successfully identified the significant cooling influence of site-specific characteristics like urban green spaces, providing critical evidence for improving city-scale climate resilience.`,
     tag: 'Research Project',
     images: ['/images/gallery/Diss_1.png', '/images/gallery/Diss_2.png', '/images/gallery/Diss_3.png'],
   },
