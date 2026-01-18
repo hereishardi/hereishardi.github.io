@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image'; // Added for optimization
 import Layout from '@/components/layout';
 
-// Full dataset based on your "work of art" folder
 const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
-    date: "Oct '24",
+    date: "Oct &apos;24", // Fixed apostrophe
     description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
     images: [
       '/images/gallery/Dorset_1.jpg',
@@ -21,8 +21,8 @@ const galleryItems = [
   {
     id: 'ruao-2024',
     title: "Case Study at RUAO - Reading, UK",
-    date: "Nov '24",
-    description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Bounary Layer Module.",
+    date: "Nov &apos;24", // Fixed apostrophe
+    description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
     images: [
       '/images/gallery/RUAO_1.jpg',
       '/images/gallery/RUAO_2.jpg',
@@ -33,8 +33,8 @@ const galleryItems = [
   {
     id: 'thames-2025',
     title: "Thames River Visit - Reading",
-    date: "Feb '25",
-    description: "Hydrological monitoring and river-atmosphere interactions as a part of a coureswork for Flood module.",
+    date: "Feb &apos;25", // Fixed apostrophe
+    description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
     images: [
       '/images/gallery/Thames_1.jpg',
       '/images/gallery/Thames_2.jpg',
@@ -46,7 +46,7 @@ const galleryItems = [
   {
     id: 'ecmwf-2025',
     title: "ECMWF Visit - Reading",
-    date: "Mar '25",
+    date: "Mar &apos;25", // Fixed apostrophe
     description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
     images: [
       '/images/gallery/ECMWF_1.jpg',
@@ -59,7 +59,7 @@ const galleryItems = [
   {
     id: 'met-office-2025',
     title: "Met Office Visit - Exeter, UK",
-    date: "July '25",
+    date: "July &apos;25", // Fixed apostrophe
     description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
     images: [
       '/images/gallery/Metoffice_1.jpg',
@@ -78,7 +78,6 @@ const galleryItems = [
       '/images/gallery/Met_1.jpg',
       '/images/gallery/Met_2.jpg',
       '/images/gallery/Met_3.jpg',
-      '/images/gallery/Met_4.jpg'
     ],
     tags: ['Academic', 'UoR']
   },
@@ -108,7 +107,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const startSlideshow = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % item.images.length);
-    }, 850); // Balanced speed for viewing
+    }, 850);
   };
 
   const stopSlideshow = () => {
@@ -122,15 +121,18 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
       onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
-      <div className="aspect-[3/4] w-full overflow-hidden bg-gray-100">
-        <img
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
+        <Image
           src={item.images[currentIndex]}
           alt={item.title}
-          className="h-full w-full object-cover transition-opacity duration-500"
+          fill
+          className="object-cover transition-opacity duration-500"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        {/* Simple Progress Bar */}
-        <div className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300"
-          style={{ width: `${((currentIndex + 1) / item.images.length) * 100}%` }} />
+        <div
+          className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
+          style={{ width: `${((currentIndex + 1) / item.images.length) * 100}%` }}
+        />
       </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
@@ -155,10 +157,8 @@ export default function Gallery() {
     <Layout title="Gallery">
       <div className="min-h-screen bg-[#FAFAFA] px-4 py-16 md:px-8 lg:px-16">
         <div className="mb-20 text-center">
-          <h1 className="mb-4 text-xl font-black tracking-tight text-gray-900">
-          </h1>
           <p className="text-xl font-medium text-blue-600/60">
-            Where I've been to so far!
+            Where I&apos;ve been to so far! {/* Fixed apostrophe */}
           </p>
         </div>
 

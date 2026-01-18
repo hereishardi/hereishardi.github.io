@@ -19,7 +19,8 @@ export default function Contact() {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('hardichittaliya08gmail.com');
+    // Fixed the email string to include @
+    navigator.clipboard.writeText('hardichittaliya08@gmail.com');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
@@ -33,58 +34,54 @@ export default function Contact() {
   };
 
   return (
-    <div className="-mt-20 bg-foreground text-white ">
-      <div className="flex min-h-screen w-full items-center justify-center pt-44 align-middle text-[8.6vw] xs:text-[5.6vw]">
-        <div className="p-12 xs:w-1/2 xs:p-0">
-          <div className="flex justify-between uppercase">
-            <p className="m-0">Bettina</p>
-            <p className="m-0">Sosa</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">software</p>
-            <p className="m-0">&</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">design</p>
-            <p className="m-0">engineer</p>
-          </div>
-          <div className="flex justify-between uppercase">
-            <p className="m-0">Ldn </p>
-            <Link href={'www.linkedin.com/in/hardi08'}>
-              <TextDisperse setBackground={setBackground}>
-                <p>→Linkedin</p>
-              </TextDisperse>
-            </Link>
-          </div>
-          <div className="flex justify-between uppercase">
-            <TextDisperse
-              setBackground={setBackground}
+    <div className="-mt-20 bg-foreground text-white">
+      {/* 1. Centered Layout using original Font sizing (8.6vw) */}
+      <div className="flex min-h-screen w-full flex-col items-center justify-center pt-44 text-center text-[8.6vw] xs:text-[5.6vw]">
+
+        {/* Name: Single line with original uppercase style, slightly less bold */}
+        <div className="flex gap-6 uppercase font-medium leading-[0.9]">
+          <p className="m-0">Hardi</p>
+          <p className="m-0">Chittaliya</p>
+        </div>
+
+        {/* Title: Stacked below name */}
+        <div className="flex flex-col items-center uppercase">
+          <p className="m-0 text-gray-400">Meteorologist</p>
+
+          {/* Links: Using the original TextDisperse effect */}
+          <div className="flex gap-10 mt-4">
+            <div
               onClick={() => {
                 toast({
-                  description:
-                    'Email copied to clipboard, alternatively write your enquiry on the form!'
+                  description: 'Email copied to clipboard!'
                 });
                 scrollToEmail();
               }}
             >
-              <p className="m-0">→Email</p>
-            </TextDisperse>
-
-            <Link href={'https://github.com/hereishardi'}>
               <TextDisperse setBackground={setBackground}>
-                <p>→Github</p>
+                <p className="m-0 cursor-pointer">→Email</p>
+              </TextDisperse>
+            </div>
+
+            <Link href={'https://www.linkedin.com/in/hardi08'} target="_blank">
+              <TextDisperse setBackground={setBackground}>
+                <p className="m-0">→Linkedin</p>
               </TextDisperse>
             </Link>
           </div>
-          <div
-            ref={background}
-            className={clsx(
-              'pointer-events-none absolute inset-0 h-full w-full bg-foreground text-[5.6vw] opacity-0'
-            )}
-          ></div>
         </div>
+
+        {/* The Disperse Overlay */}
+        <div
+          ref={background}
+          className={clsx(
+            'pointer-events-none absolute inset-0 h-full w-full bg-foreground opacity-0'
+          )}
+        ></div>
       </div>
-      <div className="px-12 sm:px-56" id="email" ref={emailRef}>
+
+      {/* 2. Form Section */}
+      <div className="px-12 sm:px-56 pb-32" id="email" ref={emailRef}>
         <ContactForm />
       </div>
     </div>

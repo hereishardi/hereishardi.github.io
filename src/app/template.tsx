@@ -39,6 +39,12 @@ export default function RootTemplate({ children }: PropsWithChildren) {
     console.log('loading', isLoading);
   }, []);
 
+  useEffect(() => {
+    if (isLoading) {
+      // Perform some action
+    }
+  }, [isLoading]);
+
   return (
     <main className="min-h-screen overflow-x-hidden">
       <AnimatePresence mode="wait">

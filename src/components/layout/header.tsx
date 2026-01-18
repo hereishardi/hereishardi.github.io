@@ -18,7 +18,7 @@ export default function Header() {
 
   useEffect(() => {
     if (isActive) setIsActive(false);
-  }, [pathname]);
+  }, [pathname, isActive]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,13 +51,14 @@ export default function Header() {
         ref={header}
         className="absolute top-0 z-20 box-border flex w-full items-center p-4 font-light text-white mix-blend-difference lg:p-8"
       >
+        {/* Logo and Name Section */}
         <div className="flex lg:pr-56">
           <Link href={'/'} className="group z-10 flex items-center space-x-2">
             <Magnetic>
               <Image
                 height={32}
                 width={32}
-                src="/images/logo.jpg"
+                src="/images/logo.png"
                 alt="Hardi logo"
                 priority
               />
@@ -72,11 +73,7 @@ export default function Header() {
                   <div className="ease-custom-cubic px-1 transition-transform duration-500 group-hover:translate-x-[-65px]">
                     Hardi
                   </div>
-
-                  <div
-                    className="ease-custom-cubic
-              translate-x-full transition-transform duration-500 group-hover:translate-x-[-65px]"
-                  >
+                  <div className="ease-custom-cubic translate-x-full transition-transform duration-500 group-hover:translate-x-[-65px]">
                     Chittaliya
                   </div>
                 </div>
@@ -84,8 +81,11 @@ export default function Header() {
             )}
           </Link>
         </div>
+
+        {/* Navigation Section */}
         {!isMobile() && (
           <div className="flex flex-1 items-center justify-between font-semibold">
+            {/* First Group: Professional Info */}
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <div className="flex flex-col">
                 <Magnetic>
@@ -96,6 +96,8 @@ export default function Header() {
                 </Magnetic>
               </div>
             </div>
+
+            {/* Second Group: Personal/Updates */}
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <div className="flex flex-col">
                 <Magnetic>
@@ -106,6 +108,8 @@ export default function Header() {
                 </Magnetic>
               </div>
             </div>
+
+            {/* Third Group: Contact */}
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <Magnetic>
                 <div className="flex">
@@ -117,6 +121,8 @@ export default function Header() {
           </div>
         )}
       </div>
+
+      {/* Floating Menu Button */}
       {!isMobile() && (
         <div ref={button} className="fixed right-0 z-20 scale-0 transform">
           <Menu />

@@ -1,79 +1,73 @@
+'use client';
+
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
 
-type Slider = {
+// Define the structure of your data
+interface SliderItem {
   color: string;
   src: string;
-};
-type Props = {
-  slider1: Slider[];
-  slider2: Slider[];
-};
+}
 
-export default function SlidingImages({ slider1, slider2 }: Props) {
+interface SlidingImagesProps {
+  slider1: SliderItem[];
+  slider2: SliderItem[];
+}
+
+// THE FIX: Destructure the props inside the function arguments
+export default function SlidingImages({ slider1, slider2 }: SlidingImagesProps) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'end start']
   });
+
+  // Ensure hooks are called unconditionally
   const x1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const x2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <div
-      ref={container}
-      className="relative z-10 mt-[200px] flex flex-col gap-[3vw] bg-background"
-    >
-      <motion.div
-        style={{ x: x1 }}
-        className="relative left-[-10vw] flex w-[300vw] gap-4 sm:w-[120vw] sm:gap-12"
-      >
-        {slider1.map((project, index) => (
+    <div ref={container} className="relative z-10 flex flex-col gap-[3vw] bg-white py-20">
+      <motion.div style={{ x: x1 }} className="flex w-[120vw] gap-[3vw] -left-[10vw] relative">
+        {slider1?.map((project, index) => (
           <div
             key={index}
-            className="flex h-60 w-1/2 items-center justify-center shadow-lg sm:h-80 sm:w-1/4"
+            className="flex h-[20vw] w-[25vw] items-center justify-center rounded-xl"
             style={{ backgroundColor: project.color }}
           >
-            <div className="relative h-full w-full">
+            <div className="relative h-[80%] w-[80%]">
               <Image
-                alt="image"
+                fill={true}
+                alt={'image'}
                 src={`/images/${project.src}`}
-                fill
-                objectFit="contain"
+                className="object-contain"
               />
             </div>
           </div>
         ))}
       </motion.div>
-      <motion.div
-        style={{ x: x2 }}
-        className="relative left-[-10vw] flex  w-[300vw] gap-6 sm:w-[120vw] sm:gap-12"
-      >
-        {slider2.map((project, index) => (
+
+      <motion.div style={{ x: x2 }} className="flex w-[120vw] gap-[3vw] -left-[10vw] relative">
+        {slider2?.map((project, index) => (
           <div
             key={index}
-            className="flex h-60 w-3/4 items-center justify-center sm:h-80 sm:w-1/4"
+            className="flex h-[20vw] w-[25vw] items-center justify-center rounded-xl"
             style={{ backgroundColor: project.color }}
           >
-            <div key={index} className="relative h-full w-full shadow-lg ">
+            <div className="relative h-[80%] w-[80%]">
               <Image
-                fill
-                alt="image"
+                fill={true}
+                alt={'image'}
                 src={`/images/${project.src}`}
-                objectFit="contain"
+                className="object-contain"
               />
             </div>
           </div>
         ))}
       </motion.div>
-      <div className="flex w-full justify-center">
-        <Link href={'/projects'}>
-          <RoundedButton>View Projects</RoundedButton>
-        </Link>
-      </div>
     </div>
   );
 }

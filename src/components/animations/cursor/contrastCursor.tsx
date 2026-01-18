@@ -41,7 +41,7 @@ export default function ContrastCursor({ isActive, text }: BlurCursorProps) {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isActive]);
+  }, [isActive, cursorX, cursorY]);
 
   if (typeof navigator !== 'undefined' && isMobile()) return null;
 

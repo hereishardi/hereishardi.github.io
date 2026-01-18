@@ -12,10 +12,9 @@ export default function ActivityPage() {
         {/* Simple Professional Header */}
         <div className="mb-16 text-center">
           <h1 className="mb-4 text-5xl font-black tracking-tight text-gray-900 md:text-7xl uppercase">
-            Activity
           </h1>
-          <p className="text-xl font-medium text-blue-600/70">
-            Professional certifications, workshops, and milestones.
+          <p className="text-2xl font-medium text-blue-600/70">
+            Professional certifications and courses
           </p>
         </div>
 

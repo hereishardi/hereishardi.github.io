@@ -32,6 +32,7 @@ export default function TextReveal({
   const wordsRef = useRef<HTMLSpanElement[]>([]);
 
   useEffect(() => {
+    const container = containerRef.current;
     const words = wordsRef.current;
     if (!words.length) return;
 
@@ -45,7 +46,7 @@ export default function TextReveal({
           ease: 'none',
           stagger,
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: container,
             start: 'top 80%',
             end: 'top 30%',
             scrub: 0.5
@@ -63,7 +64,7 @@ export default function TextReveal({
           ease: 'power3.out',
           stagger,
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: container,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           }
@@ -73,7 +74,7 @@ export default function TextReveal({
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === containerRef.current) {
+        if (trigger.vars.trigger === container) {
           trigger.kill();
         }
       });
@@ -94,7 +95,7 @@ export default function TextReveal({
             className={clsx(
               'mr-[0.25em] inline-block',
               highlightWords.includes(word.toLowerCase()) &&
-                'font-bold text-primary'
+              'font-bold text-primary'
             )}
           >
             {word}

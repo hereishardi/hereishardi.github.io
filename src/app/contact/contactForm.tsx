@@ -54,7 +54,7 @@ export function ContactForm() {
             >
               <FormField
                 control={form.control}
-                name=""
+                name="subject" // Change "" to "subject"
                 render={({ field }) => (
                   <FormItem className="flex flex-col space-y-1">
                     <FormLabel className="text-xl">Info</FormLabel>
