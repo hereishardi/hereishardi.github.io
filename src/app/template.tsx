@@ -36,14 +36,7 @@ export default function RootTemplate({ children }: PropsWithChildren) {
       document.body.style.cursor = 'default';
       window.scrollTo(0, 0);
     }, 800);
-    console.log('loading', isLoading);
-  }, []);
-
-  useEffect(() => {
-    if (isLoading) {
-      // Perform some action
-    }
-  }, [isLoading]);
+  }, []); // Empty dependency array is correct here
 
   return (
     <main className="min-h-screen overflow-x-hidden">
