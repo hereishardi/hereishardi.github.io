@@ -75,9 +75,9 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'logo'}
-                src={'/images/logo.png'} // Updated Path
+                src={'/images/logo.png'}
                 priority
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
