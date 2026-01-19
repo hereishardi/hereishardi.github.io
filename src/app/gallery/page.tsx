@@ -110,29 +110,36 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Function to start the automatic rotation
   const startSlideshow = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % item.images.length);
-    }, 2000); // Slowed down the speed to 2 seconds
-  };
-
-  const stopSlideshow = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    setCurrentIndex(0);
-  };
-
-  // Automatically start slideshow on touch devices
-  React.useEffect(() => {
-    if ("ontouchstart" in window) {
-      startSlideshow();
-      return () => stopSlideshow();
+    // Only start if an interval isn't already running
+    if (!intervalRef.current) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % item.images.length);
+      }, 1200); // Speed increased: Changed from 2000 to 1200ms for better flow
     }
+  };
+
+  // Function to clear the rotation
+  const stopSlideshow = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  // Mobile & Auto-Play logic: Starts immediately on mount
+  // This solves the "no cursor on phone" issue
+  React.useEffect(() => {
+    startSlideshow();
+    return () => stopSlideshow(); // Cleanup on unmount
   }, []);
 
   return (
     <div
-      onMouseEnter={startSlideshow}
-      onMouseLeave={stopSlideshow}
+      // On desktop: pauses on hover so user can read/view, resumes when leaving
+      onMouseEnter={stopSlideshow}
+      onMouseLeave={startSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
@@ -140,15 +147,17 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           src={getImagePath(item.images[currentIndex])}
           alt={item.title}
           fill
-          className="object-cover transition-opacity duration-300"
+          className="object-cover transition-opacity duration-500" // Smoother fade
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority={currentIndex === 0} // Prioritize the first image only
+          priority={currentIndex === 0}
         />
+        {/* Progress Bar */}
         <div
           className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
           style={{ width: `${((currentIndex + 1) / item.images.length) * 100}%` }}
         />
       </div>
+
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           <h3 className="text-lg font-bold text-gray-900 leading-tight">{item.title}</h3>
