@@ -31,8 +31,8 @@ const myProjects = [
     images: ['/images/gallery/MTMTEA_1.png'],
   }
   {
-    title: "Met Office: Forecasting Module",
-    description: "Delivered weather briefings to diverse communities, translating complex synoptic charts and numerical model data into actionable insights.",
+    title: 'Met Office: Forecasting Module',
+    description: 'Delivered weather briefings to diverse communities, translating complex synoptic charts and numerical model data into actionable insights.',
     tag: ['Operational Forecasting', 'Meteorological Communication'],
     images: ['/images/gallery/Met_4.jpg'],
   },
