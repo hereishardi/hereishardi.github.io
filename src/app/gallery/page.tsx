@@ -145,7 +145,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
 
 export default function Gallery() {
   return (
-    <Layout>
+    <Layout title="Gallery">
       <div className="py-10">
         <h2 className="text-4xl font-extrabold text-center mb-8">
           My Gallery
@@ -157,8 +157,8 @@ export default function Gallery() {
               className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
             >
               <HoverCarouselCard item={item} />
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100" />
-              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out transform scale-95 group-hover:scale-100">
+              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] opacity-0 group-hover:opacity-100" />
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] transform scale-95 group-hover:scale-100">
                 <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
               </div>
             </div>
