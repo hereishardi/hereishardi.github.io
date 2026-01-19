@@ -11,7 +11,7 @@ export default function Description() {
   const phrase2 =
     'Passionate about advancing our capacity to monitor and model the atmosphere ' +
     'at the intersection of physical science and modern tech. Whether contributing ' +
-    'to AI-driven atmospheric projects, climate research, or operational services, ' +
+    'to AI-driven atmospheric projects, climate research, or operational services. ' +
     'I am dedicated to building the advanced tools that enhance the accuracy, ' +
     'reliability, and impact of weather data for a resilient future.';
 
@@ -76,9 +76,9 @@ export default function Description() {
         <div className="mt-16 flex justify-start items-center">
           <Link href={'/about'}>
             <RoundedButton
-              className="flex h-[120px] w-[120px] cursor-pointer items-center justify-center rounded-full bg-orange-500 text-white sm:h-[160px] sm:w-[160px] hover:bg-orange-600 transition-all border-none shadow-xl"
+              className="flex h-[120px] w-[120px] cursor-pointer items-center justify-center rounded-full bg-[#f97316] text-white sm:h-[160px] sm:w-[160px] hover:bg-[#ea580c] transition-all border-none shadow-xl overflow-hidden"
             >
-              <p className="relative z-10 m-0 text-white">About me</p>
+              <p className="relative z-10 m-0 text-white font-bold">About me</p>
             </RoundedButton>
           </Link>
         </div>
