@@ -6,31 +6,30 @@ import NavLinks from '@/components/nav/NavLinks';
 
 const links = [
   {
-    title: 'home',
+    title: 'Home',
     href: '/'
   },
   {
-    title: 'about',
+    title: 'About',
     href: '/about'
   },
   {
-    title: 'projects',
+    title: 'Projects',
     href: '/projects'
   },
   {
-    title: 'gallery',
+    title: 'Gallery',
     href: '/gallery'
   },
   {
-    title: 'blog',
-    href: '/blog'
+    title: 'Activity',
+    href: '/activity'
   },
   {
-    title: 'contact',
+    title: 'Contact',
     href: '/contact'
   }
 ];
-
 const menu = {
   open: {
     transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] }
