@@ -97,7 +97,6 @@ const galleryItems = [
       '/images/gallery/Other_2.jpg',
       '/images/gallery/Other_3.jpg',
       '/images/gallery/Other_4.jpg',
-      '/images/gallery/Other_5.jpg',
       '/images/gallery/Other_6.jpg',
       '/images/gallery/Other_7.jpg',
       '/images/gallery/Other_8.jpg',
