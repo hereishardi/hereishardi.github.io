@@ -15,7 +15,6 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Safety check for window to prevent build errors
       if (typeof window !== 'undefined' && window.scrollY > 0) {
         setShowScrollButton(false);
       } else {
@@ -36,7 +35,7 @@ export default function Home() {
 
   return (
     <div ref={scrollContainerRef} className="overflow-x-hidden">
-      {/* 1. Hero Animation Section */}
+      {/* 1. Precision in Data text */}
       <LetterCollision />
 
       {/* 2. Scroll Indicator */}
@@ -52,14 +51,13 @@ export default function Home() {
         </Magnetic>
       )}
 
-      {/* 3. Content Sections */}
+      {/* 3. Your intro - MOVED BEFORE CLIMATE STRIPS */}
       <div id="hero" ref={heroRef}>
-        <Hero />
+        <Description />
       </div>
 
-      <Description />
-
-      {/* SlidingImages was here; it has been removed to fix the build errors */}
+      {/* 4. Climate Strips */}
+      <Hero />
 
       <ContrastCursor isActive={false} text={'Go to project'} />
     </div>

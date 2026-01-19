@@ -2,12 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-
-// Helper function to handle basePath
-const getImagePath = (path: string) => {
-  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
-  return `${basePath}${path}`;
-};
+import { getImagePath } from '@/utils/imagePath';
 
 export default function Hero() {
   return (
@@ -17,7 +12,7 @@ export default function Hero() {
         src={getImagePath("/images/gallery/Climate_Strip.png")}
         alt="Climate Warming Stripes"
         fill
-        className="object-cover opacity-100 brightness-120"
+        className="object-cover object-center opacity-100 brightness-120"
         priority
         unoptimized
       />
