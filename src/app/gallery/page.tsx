@@ -4,11 +4,10 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/layout';
 
-// Helper function to handle basePath
+// Helper function to handle basePath for GitHub Pages
 const getImagePath = (path: string) => {
-  // Since your site is at the root (hardichittaliya.vercel.app), 
-  // we usually leave basePath empty.
-  const basePath = process.env.NODE_ENV === 'production' ? '' : '';
+  // Ensure this matches your GitHub repository name
+  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
   return `${basePath}${path}`;
 };
 
@@ -16,7 +15,7 @@ const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
-    date: "Oct &apos;24",
+    date: "Oct '24", // Fixed: Use literal apostrophe
     description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
     images: [
       '/images/gallery/Dorset_1.jpg',
@@ -29,7 +28,7 @@ const galleryItems = [
   {
     id: 'ruao-2024',
     title: "Case Study at RUAO - Reading, UK",
-    date: "Nov &apos;24",
+    date: "Nov '24", // Fixed
     description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
     images: [
       '/images/gallery/RUAO_1.jpg',
@@ -41,7 +40,7 @@ const galleryItems = [
   {
     id: 'thames-2025',
     title: "Thames River Visit - Reading",
-    date: "Feb &apos;25",
+    date: "Feb '25", // Fixed
     description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
     images: [
       '/images/gallery/Thames_1.jpg',
@@ -54,7 +53,7 @@ const galleryItems = [
   {
     id: 'ecmwf-2025',
     title: "ECMWF Visit - Reading",
-    date: "Mar &apos;25",
+    date: "Mar '25", // Fixed
     description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
     images: [
       '/images/gallery/ECMWF_1.jpg',
@@ -67,7 +66,7 @@ const galleryItems = [
   {
     id: 'met-office-2025',
     title: "Met Office Visit - Exeter, UK",
-    date: "July &apos;25",
+    date: "July '25", // Fixed
     description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
     images: [
       '/images/gallery/Metoffice_1.jpg',
@@ -92,6 +91,7 @@ const galleryItems = [
     id: 'skies-clouds',
     title: "More pretty skies and clouds!!",
     description: "Capturing the beauty of the sky and atmosphere all around!",
+    date: "2024 - 2025",
     images: [
       '/images/gallery/Other_1.jpg',
       '/images/gallery/Other_2.jpg',
@@ -128,10 +128,17 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
       onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
-      {/* 1. PRELOADING BLOCK: Forces the browser to load all images in the background */}
+      {/* PRELOADING: Using Next.js Image for hidden preloading is more effective */}
       <div className="hidden">
-        {item.images.map((src, i) => (
-          <img key={i} src={getImagePath(src)} alt="preload" />
+        {item.images.slice(1).map((src, i) => (
+          <Image
+            key={i}
+            src={getImagePath(src)}
+            alt="preload"
+            width={10}
+            height={10}
+            loading="eager"
+          />
         ))}
       </div>
 
@@ -140,10 +147,9 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           src={getImagePath(item.images[currentIndex])}
           alt={item.title}
           fill
-          // 2. Faster transition duration (300ms instead of 500ms) feels snappier
           className="object-cover transition-opacity duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority={true} // 3. Prioritize loading these images
+          priority={true}
         />
         <div
           className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
