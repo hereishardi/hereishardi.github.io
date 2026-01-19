@@ -3,10 +3,14 @@
 import React from 'react';
 import Layout from '@/components/layout';
 import CertificationsTimeline from './components/CertificationsTimeline';
+import Hero from '@/components/home/hero';
 
 export default function ActivityPage() {
   return (
     <Layout title="Activity">
+      {/* Climate Strips Section */}
+      <Hero />
+
       <div className="min-h-screen bg-[#FAFAFA] px-4 py-16 md:px-8 lg:px-16">
 
         {/* Simple Professional Header */}

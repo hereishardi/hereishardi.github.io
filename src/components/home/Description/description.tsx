@@ -56,7 +56,7 @@ export default function Description() {
           ))}
         </p>
       </div>
-      <div>
+      <div className="relative">
         <motion.p
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
@@ -67,13 +67,13 @@ export default function Description() {
         <motion.p
           variants={opacity}
           animate={isInView ? 'open' : 'closed'}
-          className="m-0 text-lg font-light"
+          className="m-0 text-lg font-light mb-32 sm:mb-0"
         >
           My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualization. I have extensive experience managing complex observational weather networks and performing high-resolution atmospheric modeling to provide actionable insights for urban and regional climate resilience.
         </motion.p>
-        <div data-scroll-speed={0.1}>
+        <div className="mt-8 sm:mt-16 flex justify-center sm:justify-start">
           <Link href={'/about'}>
-            <RoundedButton className="absolute ml-56 mt-6 flex h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-destructive text-white sm:ml-16 sm:mt-16 sm:h-[200px] sm:w-[200px]">
+            <RoundedButton className="flex h-[120px] w-[120px] cursor-pointer items-center justify-center rounded-full bg-destructive text-white sm:h-[200px] sm:w-[200px]">
               About me
             </RoundedButton>
           </Link>

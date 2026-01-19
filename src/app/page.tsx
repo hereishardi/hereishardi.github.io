@@ -5,7 +5,6 @@ import { ArrowDownRight } from 'lucide-react';
 import ContrastCursor from '@/components/animations/cursor/contrastCursor';
 import { LetterCollision } from '@/components/animations/textAnimations/scrollText';
 import Magnetic from '@/components/animations/magnetic';
-import Hero from '@/components/home/hero';
 import Description from '@/components/home/Description/description';
 
 export default function Home() {
@@ -51,13 +50,10 @@ export default function Home() {
         </Magnetic>
       )}
 
-      {/* 3. Your intro - MOVED BEFORE CLIMATE STRIPS */}
+      {/* 3. Your intro */}
       <div id="hero" ref={heroRef}>
         <Description />
       </div>
-
-      {/* 4. Climate Strips */}
-      <Hero />
 
       <ContrastCursor isActive={false} text={'Go to project'} />
     </div>
