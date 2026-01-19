@@ -6,8 +6,7 @@ import Layout from '@/components/layout';
 
 // Helper function to handle basePath for GitHub Pages
 const getImagePath = (path: string) => {
-  // If your site is at username.github.io, the basePath should be empty.
-  // Only use a prefix if your repo name is something like 'my-portfolio'
+  // Since your site is at hereishardi.github.io, basePath should be empty.
   const basePath = '';
   return `${basePath}${path}`;
 };
@@ -126,13 +125,10 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   };
 
   React.useEffect(() => {
-    // Check if device is a phone/tablet
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
     if (isTouchDevice) {
       startSlideshow();
     }
-
     return () => stopSlideshow();
   }, []);
 
@@ -147,6 +143,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           src={getImagePath(item.images[currentIndex])}
           alt={item.title}
           fill
+          unoptimized // CRITICAL: This fixes the "buffering" issue on GitHub Pages
           className="object-cover transition-opacity duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority={currentIndex === 0}
