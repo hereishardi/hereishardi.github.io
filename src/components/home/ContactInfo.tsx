@@ -150,10 +150,24 @@ export default function ContactInfo() {
               </h3>
               <div className="flex gap-4 p-1">
                 <Magnetic>
-                  <Link href="https://github.com/hereishardi" className={animatedUnderlineStyle}>Github</Link>
+                  <Link
+                    href="https://www.linkedin.com/in/hardi08"
+                    className={animatedUnderlineStyle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Linkedin
+                  </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href="https://www.linkedin.com/in/hardi08" className={animatedUnderlineStyle}>Linkedin</Link>
+                  <Link
+                    href="https://www.instagram.com/hereishardi/"
+                    className={animatedUnderlineStyle}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </Link>
                 </Magnetic>
               </div>
             </span>
