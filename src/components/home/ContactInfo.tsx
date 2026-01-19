@@ -75,7 +75,7 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'logo'}
-                src={getImagePath(`/images/logo.jpg`)}
+                src={getImagePath(`/images/logo.jpg`)} // Corrected Path
                 priority
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -99,27 +99,8 @@ export default function ContactInfo() {
           </motion.div>
         </div>
 
-        {/* --- EMAIL SECTION WITH RAIN --- */}
-        <div className="relative mt-6 flex gap-5 sm:mx-[100px] w-fit">
+        <div className="mt-6 flex gap-5 sm:mx-[100px]">
           <RoundedButton>hardichittaliya08@gmail.com</RoundedButton>
-
-          {/* Rain Animation: Starts from the email and falls down */}
-          <div className="absolute top-full left-0 w-full h-[50vh] pointer-events-none opacity-30 overflow-hidden">
-            {[...Array(15)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute bg-blue-200"
-                initial={{ top: "-10%", left: `${Math.random() * 100}%`, width: "1px", height: "50px" }}
-                animate={{ top: "110%" }}
-                transition={{
-                  duration: 0.7 + Math.random() * 0.5,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
         </div>
 
         <div className="mt-20 flex flex-col justify-between p-5 2xs:mt-52 sm:mx-[100px] sm:mt-48 sm:flex-row items-start">
