@@ -77,7 +77,7 @@ export default function ContactInfo() {
                 alt={'logo'}
                 src={getImagePath('/images/logo.png')}
                 priority
-                className="object-cover "  // CHANGED FROM object-contain
+                className="object-cover scale-125"  // CHANGED FROM object-contain
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
