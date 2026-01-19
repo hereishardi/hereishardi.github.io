@@ -72,14 +72,12 @@ export default function Description() {
           </motion.p>
         </div>
 
-        {/* Spacing and Orange Button */}
+        {/* Orange Button */}
         <div className="mt-16 flex justify-start items-center">
           <Link href={'/about'}>
-            <RoundedButton
-              className="flex h-[120px] w-[120px] cursor-pointer items-center justify-center rounded-full bg-[#f97316] text-white sm:h-[160px] sm:w-[160px] hover:bg-[#ea580c] transition-all border-none shadow-xl overflow-hidden"
-            >
-              <p className="relative z-10 m-0 text-white font-bold">About me</p>
-            </RoundedButton>
+            <button className="flex h-[120px] w-[120px] cursor-pointer items-center justify-center rounded-full bg-[#f97316] text-white sm:h-[160px] sm:w-[160px] hover:bg-[#ea580c] transition-all shadow-xl font-bold">
+              About me
+            </button>
           </Link>
         </div>
       </div>
