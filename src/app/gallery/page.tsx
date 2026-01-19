@@ -6,7 +6,9 @@ import Layout from '@/components/layout';
 
 // Helper function to handle basePath for GitHub Pages
 const getImagePath = (path: string) => {
-  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
+  // If your site is at username.github.io, the basePath should be empty.
+  // Only use a prefix if your repo name is something like 'my-portfolio'
+  const basePath = '';
   return `${basePath}${path}`;
 };
 
