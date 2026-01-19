@@ -117,4 +117,54 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   };
 
   const stopSlideshow = () => {
-    if
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  return (
+    <div
+      className="relative w-full h-full cursor-pointer"
+      onMouseEnter={stopSlideshow}
+      onMouseLeave={startSlideshow}
+    >
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+      </div>
+      <Image
+        src={getImagePath(item.images[currentIndex])}
+        alt={item.title}
+        layout="fill"
+        objectFit="cover"
+        className="transition-transform duration-700 ease-in-out transform hover:scale-105"
+      />
+    </div>
+  );
+}
+
+export default function Gallery() {
+  return (
+    <Layout>
+      <div className="py-10">
+        <h2 className="text-4xl font-extrabold text-center mb-8">
+          My Gallery
+        </h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {galleryItems.map((item) => (
+            <div
+              key={item.id}
+              className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
+            >
+              <HoverCarouselCard item={item} />
+              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100" />
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out transform scale-95 group-hover:scale-100">
+                <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Layout>
+  );
+}
