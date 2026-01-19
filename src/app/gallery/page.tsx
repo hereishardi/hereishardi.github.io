@@ -113,55 +113,73 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const startSlideshow = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % item.images.length);
-    }, 850); // Reverted speed to 850ms
+    }, 2000); // Slowed down the speed to 2 seconds
   };
 
   const stopSlideshow = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setCurrentIndex(0);
   };
+
+  // Automatically start slideshow on touch devices
+  React.useEffect(() => {
+    if ("ontouchstart" in window) {
+      startSlideshow();
+      return () => stopSlideshow();
+    }
+  }, []);
 
   return (
     <div
-      className="relative w-full h-full cursor-pointer"
-      onMouseEnter={stopSlideshow}
-      onMouseLeave={startSlideshow}
+      onMouseEnter={startSlideshow}
+      onMouseLeave={stopSlideshow}
+      className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
-      <div className="absolute inset-0 z-10 flex items-center justify-center">
-        <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
+        <Image
+          src={getImagePath(item.images[currentIndex])}
+          alt={item.title}
+          fill
+          className="object-cover transition-opacity duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          priority={currentIndex === 0} // Prioritize the first image only
+        />
+        <div
+          className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
+          style={{ width: `${((currentIndex + 1) / item.images.length) * 100}%` }}
+        />
       </div>
-      <Image
-        src={getImagePath(item.images[currentIndex])}
-        alt={item.title}
-        layout="fill"
-        objectFit="cover"
-        className="transition-transform duration-700 ease-in-out transform hover:scale-105"
-      />
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-lg font-bold text-gray-900 leading-tight">{item.title}</h3>
+          <span className="text-[10px] font-bold text-gray-400 uppercase">{item.date}</span>
+        </div>
+        <p className="text-xs text-gray-500 mb-4 line-clamp-2">{item.description}</p>
+        <div className="flex flex-wrap gap-2">
+          {item.tags.map(tag => (
+            <span key={tag} className="px-2 py-0.5 text-[9px] bg-blue-50 text-blue-600 rounded-full font-bold uppercase tracking-tighter">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function Gallery() {
   return (
-    <Layout>
-      <div className="py-10">
-        <h2 className="text-4xl font-extrabold text-center mb-8">
-          My Gallery
-        </h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <Layout title="Gallery">
+      <div className="min-h-screen bg-[#FAFAFA] px-4 py-16 md:px-8 lg:px-16">
+        <div className="mb-20 text-center">
+          <p className="text-xl font-medium text-blue-600/60">
+            Where I&apos;ve been to so far!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map((item) => (
-            <div
-              key={item.id}
-              className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
-            >
-              <HoverCarouselCard item={item} />
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100" />
-              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out transform scale-95 group-hover:scale-100">
-                <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
-              </div>
-            </div>
+            <HoverCarouselCard key={item.id} item={item} />
           ))}
         </div>
       </div>

@@ -71,13 +71,13 @@ export default function ContactInfo() {
       <div className="w-full bg-foreground pt-[150px] sm:max-w-[1800px] z-10">
         <div className="relative border-b border-gray-600 pb-12 sm:mx-[100px]">
           <span className="flex items-center">
-            <div className="relative h-16 w-16 overflow-hidden rounded-full sm:h-[100px] sm:w-[100px] border border-white/10">
+            <div className="relative h-16 w-16 overflow-hidden rounded-full sm:h-[100px] sm:w-[100px] border border-white/10 bg-white">
               <Image
                 fill
                 alt={'logo'}
-                src={'/images/logo.png'}
+                src={getImagePath('/images/logo.png')}
                 priority
-                className="object-contain rounded-full"
+                className="object-cover" // CHANGED FROM object-contain
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
