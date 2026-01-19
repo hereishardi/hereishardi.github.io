@@ -7,7 +7,6 @@ import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
 import { getImagePath } from '@/utils/imagePath';
 
-// Define the structure for our multi-city weather
 interface CityWeather {
   name: string;
   temp: number;
@@ -15,20 +14,17 @@ interface CityWeather {
 }
 
 export default function ContactInfo() {
-  // 1. Updated State: Now an array to hold multiple cities
   const [weatherData, setWeatherData] = useState<CityWeather[]>([]);
 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        // Reordered cities: New York, London, Delhi
         const cities = [
           { name: 'New York', lat: 40.7128, lon: -74.0060 },
           { name: 'London', lat: 51.5074, lon: -0.1278 },
           { name: 'Delhi', lat: 28.6139, lon: 77.2090 }
         ];
 
-        // Fetch all cities at once
         const results = await Promise.all(cities.map(async (city) => {
           const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current_weather=true`);
           const data = await res.json();
@@ -70,17 +66,37 @@ export default function ContactInfo() {
     <motion.div
       style={{ y }}
       ref={container}
-      className="relative flex min-h-screen flex-col items-center justify-between bg-foreground p-6 pt-32 text-white sm:justify-center"
+      className="relative flex min-h-screen flex-col items-center justify-between bg-foreground p-6 pt-32 text-white sm:justify-center overflow-hidden"
     >
-      <div className="w-full bg-foreground pt-[150px] sm:max-w-[1800px]">
+      {/* --- RAIN ANIMATION LAYER --- */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        {[...Array(25)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-blue-100"
+            initial={{ top: "-10%", left: `${Math.random() * 100}%`, width: "1px", height: "40px" }}
+            animate={{ top: "110%" }}
+            transition={{
+              duration: 0.8 + Math.random() * 0.5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="w-full bg-foreground pt-[150px] sm:max-w-[1800px] z-10">
         <div className="relative border-b border-gray-600 pb-12 sm:mx-[100px]">
           <span className="flex items-center">
-            <div className="relative h-16 w-16 overflow-hidden rounded-full sm:h-[100px] sm:w-[100px]">
+            <div className="relative h-16 w-16 overflow-hidden rounded-full sm:h-[100px] sm:w-[100px] border border-white/10">
               <Image
                 fill
-                alt={'profile'}
-                src={getImagePath(`/images/profile2.jpg`)}
+                alt={'logo'}
+                // Changed from profile2.jpg to your logo
+                src={getImagePath(`/images/gallery/logo.png`)}
                 priority
+                className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
