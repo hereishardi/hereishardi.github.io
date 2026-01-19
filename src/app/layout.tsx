@@ -12,7 +12,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Hardi's portfolio",
-  description: 'Hardi is a Meteorologist and climate enthusiast.'
+  description: 'Hardi is a Meteorologist and climate enthusiast.',
+  icons: {
+    icon: '/images/gallery/logo.png',
+  },
 };
 
 export default function RootLayout({
