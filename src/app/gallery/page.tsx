@@ -6,7 +6,6 @@ import Layout from '@/components/layout';
 
 // Helper function to handle basePath for GitHub Pages
 const getImagePath = (path: string) => {
-  // Ensure this matches your GitHub repository name
   const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
   return `${basePath}${path}`;
 };
@@ -15,7 +14,7 @@ const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
-    date: "Oct '24", // Fixed: Use literal apostrophe
+    date: "Oct '24",
     description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
     images: [
       '/images/gallery/Dorset_1.jpg',
@@ -28,7 +27,7 @@ const galleryItems = [
   {
     id: 'ruao-2024',
     title: "Case Study at RUAO - Reading, UK",
-    date: "Nov '24", // Fixed
+    date: "Nov '24",
     description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
     images: [
       '/images/gallery/RUAO_1.jpg',
@@ -40,7 +39,7 @@ const galleryItems = [
   {
     id: 'thames-2025',
     title: "Thames River Visit - Reading",
-    date: "Feb '25", // Fixed
+    date: "Feb '25",
     description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
     images: [
       '/images/gallery/Thames_1.jpg',
@@ -53,7 +52,7 @@ const galleryItems = [
   {
     id: 'ecmwf-2025',
     title: "ECMWF Visit - Reading",
-    date: "Mar '25", // Fixed
+    date: "Mar '25",
     description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
     images: [
       '/images/gallery/ECMWF_1.jpg',
@@ -66,7 +65,7 @@ const galleryItems = [
   {
     id: 'met-office-2025',
     title: "Met Office Visit - Exeter, UK",
-    date: "July '25", // Fixed
+    date: "July '25",
     description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
     images: [
       '/images/gallery/Metoffice_1.jpg',
@@ -110,17 +109,13 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Function to start the automatic rotation
   const startSlideshow = () => {
-    // Only start if an interval isn't already running
-    if (!intervalRef.current) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % item.images.length);
-      }, 1200); // Speed increased: Changed from 2000 to 1200ms for better flow
-    }
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % item.images.length);
+    }, 900);
   };
 
-  // Function to clear the rotation
   const stopSlideshow = () => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -128,18 +123,21 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
     }
   };
 
-  // Mobile & Auto-Play logic: Starts immediately on mount
-  // This solves the "no cursor on phone" issue
   React.useEffect(() => {
-    startSlideshow();
-    return () => stopSlideshow(); // Cleanup on unmount
+    // Check if device is a phone/tablet
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      startSlideshow();
+    }
+
+    return () => stopSlideshow();
   }, []);
 
   return (
     <div
-      // On desktop: pauses on hover so user can read/view, resumes when leaving
-      onMouseEnter={stopSlideshow}
-      onMouseLeave={startSlideshow}
+      onMouseEnter={startSlideshow}
+      onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
@@ -147,11 +145,10 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           src={getImagePath(item.images[currentIndex])}
           alt={item.title}
           fill
-          className="object-cover transition-opacity duration-500" // Smoother fade
+          className="object-cover transition-opacity duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority={currentIndex === 0}
         />
-        {/* Progress Bar */}
         <div
           className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
           style={{ width: `${((currentIndex + 1) / item.images.length) * 100}%` }}
