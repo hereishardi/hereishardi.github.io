@@ -151,18 +151,22 @@ export default function Gallery() {
           My Gallery
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {galleryItems.map((item) => (
-            <div
-              key={item.id}
-              className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
-            >
-              <HoverCarouselCard item={item} />
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] opacity-0 group-hover:opacity-100" />
-              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] transform scale-95 group-hover:scale-100">
-                <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
+          {galleryItems.length > 0 ? (
+            galleryItems.map((item) => (
+              <div
+                key={item.id}
+                className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
+              >
+                <HoverCarouselCard item={item} />
+                <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] opacity-0 group-hover:opacity-100" />
+                <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] transform scale-95 group-hover:scale-100">
+                  <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="text-center text-gray-500">No gallery items available.</p>
+          )}
         </div>
       </div>
     </Layout>

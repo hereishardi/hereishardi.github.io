@@ -73,7 +73,7 @@ export default function Description() {
         </motion.p>
         <div data-scroll-speed={0.1} className="relative flex justify-center items-center">
           <Link href={'/about'}>
-            <RoundedButton className="flex h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-blue-600 text-white sm:h-[150px] sm:w-[150px] hover:bg-blue-700 transition-all">
+            <RoundedButton className="flex h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-orange-500 text-white sm:h-[150px] sm:w-[150px] hover:bg-orange-600 transition-all">
               About me
             </RoundedButton>
           </Link>
