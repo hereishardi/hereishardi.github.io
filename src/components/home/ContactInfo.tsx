@@ -75,7 +75,7 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'logo'}
-                src={getImagePath(`/images/logo.jpg`)} // Corrected Path
+                src={'/images/logo.png'} // Updated Path
                 priority
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
