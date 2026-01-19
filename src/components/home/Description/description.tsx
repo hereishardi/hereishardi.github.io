@@ -71,9 +71,9 @@ export default function Description() {
         >
           My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualisation. I have extensive experience managing complex observational weather networks and performing high-resolution atmospheric modeling to provide actionable insights for urban and regional climate resilience.
         </motion.p>
-        <div data-scroll-speed={0.1}>
+        <div data-scroll-speed={0.1} className="relative flex justify-center items-center">
           <Link href={'/about'}>
-            <RoundedButton className="absolute ml-56 mt-6 flex h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-destructive text-white sm:ml-16 sm:mt-16 sm:h-[200px] sm:w-[200px]">
+            <RoundedButton className="flex h-[80px] w-[80px] cursor-pointer items-center justify-center rounded-full bg-destructive text-white sm:h-[150px] sm:w-[150px]">
               About me
             </RoundedButton>
           </Link>

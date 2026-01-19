@@ -50,7 +50,7 @@ export default function ContrastCursor({ isActive, text }: BlurCursorProps) {
       className={clsx(
         'pointer-events-none fixed left-0 top-0 z-50 mix-blend-multiply shadow-md',
         isActive
-          ? 'w-400 bg-yellow-400 bg-opacity-50 p-4 text-6xl font-bold text-white' // Updated active cursor color
+          ? 'w-400 bg-destructive bg-opacity-50 p-4 text-6xl font-bold text-white'
           : 'h-10 w-10 rounded-full',
         isClicked ? 'bg-yellow-300' : 'bg-yellow-200' // Updated clicked and default cursor colors
       )}

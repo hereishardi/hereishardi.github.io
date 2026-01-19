@@ -113,7 +113,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const startSlideshow = () => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % item.images.length);
-    }, 850);
+    }, 2000); // Slowed down the speed to 2 seconds
   };
 
   const stopSlideshow = () => {
@@ -121,26 +121,20 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
     setCurrentIndex(0);
   };
 
+  // Automatically start slideshow on touch devices
+  React.useEffect(() => {
+    if ("ontouchstart" in window) {
+      startSlideshow();
+      return () => stopSlideshow();
+    }
+  }, []);
+
   return (
     <div
       onMouseEnter={startSlideshow}
       onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
-      {/* PRELOADING: Using Next.js Image for hidden preloading is more effective */}
-      <div className="hidden">
-        {item.images.slice(1).map((src, i) => (
-          <Image
-            key={i}
-            src={getImagePath(src)}
-            alt="preload"
-            width={10}
-            height={10}
-            loading="eager"
-          />
-        ))}
-      </div>
-
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
         <Image
           src={getImagePath(item.images[currentIndex])}
@@ -148,7 +142,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           fill
           className="object-cover transition-opacity duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority={true}
+          priority={currentIndex === 0} // Prioritize the first image only
         />
         <div
           className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-300 z-10"
