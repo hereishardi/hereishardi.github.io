@@ -32,8 +32,8 @@ const myProjects = [
   },
   {
     title: 'Met Office: Forecasting Module',
-    description: 'As part of the Met Office Forecasting module, I worked in a small team to deliver weather forecasts to a mock client, including students and scientists. I explained complex forecast outputs by tailoring language for different technical levels, while discussing model uncertainty with experts. Our team received very positive feedback for providing clear briefings. This experience enhanced my operational forecasting skills and ability to communicate meteorological information effectively under time constraints.',
-    tag: ['Operational Forecasting', 'Meteorological Communication'],
+    description: 'As part of the Met Office Forecasting module, I worked in a small team to deliver weather forecasts to a mock client, including students and scientists. I explained complex forecast outputs by tailoring language for different audiences, while discussing model uncertainty with experts. Our team received very positive feedback for providing clear briefings. This experience enhanced my operational forecasting skills and ability to communicate meteorological information effectively under time constraints.',
+    tag: ['Operational Forecasting & Meteorological Communication'],
     images: ['/images/gallery/Met_4.jpg'],
   },
 ];

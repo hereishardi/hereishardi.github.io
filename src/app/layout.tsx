@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Hardi's portfolio",
   description: 'Hardi is a Meteorologist and climate enthusiast.',
   icons: {
-    icon: '/images/gallery/logo.png',
+    icon: '/images/logo.png',
   },
 };
 
