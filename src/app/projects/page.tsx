@@ -26,7 +26,7 @@ const myProjects = [
   },
   {
     title: 'Analysis of Mesoscale Instabilities in Extra-Tropical Cyclones',
-    description: `I performed a detailed synoptic reconstruction of "Cyclone Friedhelm," an explosive mid-latitude system, to identify the formation of 'Sting Jets' and high-momentum air streams. Using Met Office model charts and reanalysis data, I analysed theta-w gradients and baroclinic zones to map the transition from frontal fracture to cloud head development. By evaluating descent-driven momentum transfer, I identified the drivers of severe surface damage, showcasing my ability to interpret complex physical processes.`,
+    description: `I performed a detailed synoptic reconstruction of "Cyclone Friedhelm," an explosive mid-latitude system, to identify the formation of 'Sting Jets' and high-momentum air streams. Using Met Office model charts, I analysed theta-w gradients and baroclinic zones to map the transition from frontal fracture to cloud head development. By evaluating descent-driven momentum transfer, I identified the drivers of severe surface damage, showcasing my ability to interpret complex physical processes.`,
     tag: ['Tropical Cyclones & Extreme Weather Analysis'],
     images: ['/images/gallery/MTMTEA_1.png'],
   }

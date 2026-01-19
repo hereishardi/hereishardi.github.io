@@ -36,7 +36,7 @@ export default function ActivityPage() {
             Did You Know?
           </h2>
           <p className="text-lg md:text-2xl text-white/90 leading-relaxed">
-            2025 marks Earth&apos;s third warmest year on record, with the past 11 years being the hottest ever recorded,adding another dark red stripe to the climate stripes graphic.
+            2025 marks Earth&apos;s third warmest year on record, with the past 11 years being the hottest ever recorded - adding another dark red stripe to the climate stripes graphic.
           </p>
         </div>
       </div>

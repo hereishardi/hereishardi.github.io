@@ -21,14 +21,14 @@ const journeyData: TimelineItem[] = [
     year: 'Jan 2026 - Present',
     title: 'Board Member - Board on Enterprise Decision Support (BEDS)',
     company: 'American Meteorological Society',
-    description: 'Contributing to strategic initiatives and decision support systems for the meteorological community.',
+    description: 'Contributing to strategic initiatives and decision support for the meteorological community.',
     highlight: true
   },
   {
     year: 'June 2025 - Sep 2025',
-    title: 'Graduate Research Assistant',
+    title: 'Research Assistant',
     company: 'University of Reading',
-    description: 'Conducted a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin. Utilized Python for statistical analysis and geospatial visualidsation of multi-network datasets from 25+ weather stations to assess urban climate resilience.',
+    description: 'Conducted a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin. Utilised Python for statistical analysis and geospatial visualisation of multi-network datasets from 25+ weather stations to assess urban climate resilience.',
   },
   {
     year: 'June 2025 - July 2025',

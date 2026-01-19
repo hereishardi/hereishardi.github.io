@@ -69,7 +69,7 @@ export default function Description() {
           animate={isInView ? 'open' : 'closed'}
           className="m-0 text-lg font-light mb-32 sm:mb-0"
         >
-          My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualization. I have extensive experience managing complex observational weather networks and performing high-resolution atmospheric modeling to provide actionable insights for urban and regional climate resilience.
+          My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualisation. I have extensive experience managing complex observational weather networks and performing high-resolution atmospheric modeling to provide actionable insights for urban and regional climate resilience.
         </motion.p>
         <div className="mt-8 sm:mt-16 flex justify-center sm:justify-start">
           <Link href={'/about'}>
