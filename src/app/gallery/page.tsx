@@ -1,16 +1,21 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/layout';
-import { getImagePath } from '@/utils/imagePath'; // Uses your central utility
 
-// Keep your galleryItems exactly as you had them
+// Helper function to handle basePath for GitHub Pages
+const getImagePath = (path: string) => {
+  // Ensure this matches your GitHub repository name
+  const basePath = process.env.NODE_ENV === 'production' ? '/hardichittaliya.com' : '';
+  return `${basePath}${path}`;
+};
+
 const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
-    date: "Oct '24",
+    date: "Oct '24", // Fixed: Use literal apostrophe
     description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
     images: [
       '/images/gallery/Dorset_1.jpg',
@@ -20,7 +25,68 @@ const galleryItems = [
     ],
     tags: ['Field Work', 'Dorset']
   },
-  // ... other items remain the same
+  {
+    id: 'ruao-2024',
+    title: "Case Study at RUAO - Reading, UK",
+    date: "Nov '24", // Fixed
+    description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
+    images: [
+      '/images/gallery/RUAO_1.jpg',
+      '/images/gallery/RUAO_2.jpg',
+      '/images/gallery/RUAO_3.jpg'
+    ],
+    tags: ['Instrumentation', 'Analysis']
+  },
+  {
+    id: 'thames-2025',
+    title: "Thames River Visit - Reading",
+    date: "Feb '25", // Fixed
+    description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
+    images: [
+      '/images/gallery/Thames_1.jpg',
+      '/images/gallery/Thames_2.jpg',
+      '/images/gallery/Thames_3.jpg',
+      '/images/gallery/Thames_4.jpg'
+    ],
+    tags: ['Hydrometeorology']
+  },
+  {
+    id: 'ecmwf-2025',
+    title: "ECMWF Visit - Reading",
+    date: "Mar '25", // Fixed
+    description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
+    images: [
+      '/images/gallery/ECMWF_1.jpg',
+      '/images/gallery/ECMWF_2.jpg',
+      '/images/gallery/ECMWF_3.jpg',
+      '/images/gallery/ECMWF_4.jpg'
+    ],
+    tags: ['Flood-Forecasting']
+  },
+  {
+    id: 'met-office-2025',
+    title: "Met Office Visit - Exeter, UK",
+    date: "July '25", // Fixed
+    description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
+    images: [
+      '/images/gallery/Metoffice_1.jpg',
+      '/images/gallery/Metoffice_2.jpg',
+      '/images/gallery/Metoffice_3.jpg'
+    ],
+    tags: ['Climate Workshop']
+  },
+  {
+    id: 'uor-met',
+    title: "Meteorology Department - University of Reading",
+    date: '2024 - 2025',
+    description: "Academic life at one of the best uni for atmospheric science.",
+    images: [
+      '/images/gallery/Met_1.jpg',
+      '/images/gallery/Met_2.jpg',
+      '/images/gallery/Met_3.jpg',
+    ],
+    tags: ['Academic', 'UoR']
+  },
   {
     id: 'skies-clouds',
     title: "More pretty skies and clouds!!",
@@ -45,11 +111,9 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const startSlideshow = () => {
-    if (!intervalRef.current) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % item.images.length);
-      }, 1200); // Smooth transition speed
-    }
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % item.images.length);
+    }, 850); // Reverted speed to 850ms
   };
 
   const stopSlideshow = () => {
@@ -59,24 +123,21 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
     }
   };
 
-  // Start slideshow automatically when component loads
-  useEffect(() => {
-    startSlideshow();
-    return () => stopSlideshow();
-  }, []);
-
   return (
     <div
-      className="relative w-full h-full"
+      className="relative w-full h-full cursor-pointer"
       onMouseEnter={stopSlideshow}
       onMouseLeave={startSlideshow}
     >
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+      </div>
       <Image
         src={getImagePath(item.images[currentIndex])}
         alt={item.title}
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition-opacity duration-500"
+        layout="fill"
+        objectFit="cover"
+        className="transition-transform duration-700 ease-in-out transform hover:scale-105"
       />
     </div>
   );
@@ -84,34 +145,21 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
 
 export default function Gallery() {
   return (
-    <Layout title="Gallery">
-      <div className="py-20 bg-foreground min-h-screen text-white">
-        <h2 className="text-4xl font-extrabold text-center mb-12">
-          Meteorological Fieldwork & Gallery
+    <Layout>
+      <div className="py-10">
+        <h2 className="text-4xl font-extrabold text-center mb-8">
+          My Gallery
         </h2>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {galleryItems.map((item) => (
             <div
               key={item.id}
-              className="group relative rounded-xl overflow-hidden shadow-2xl bg-zinc-900 h-[350px] sm:h-[450px]"
+              className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer"
             >
               <HoverCarouselCard item={item} />
-
-              {/* Animated Overlay */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8 translate-y-4 group-hover:translate-y-0">
-                <h3 className="text-2xl font-bold text-yellow-400">{item.title}</h3>
-                <p className="text-sm text-zinc-300 mt-3 line-clamp-3">{item.description}</p>
-                <div className="flex justify-between items-center mt-4">
-                  <span className="text-xs font-mono text-zinc-500">{item.date}</span>
-                  <div className="flex gap-2">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="text-[10px] bg-white/10 px-2 py-1 rounded text-zinc-400 uppercase">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100" />
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out transform scale-95 group-hover:scale-100">
+                <h3 className="text-white text-lg font-semibold text-center">{item.title}</h3>
               </div>
             </div>
           ))}
