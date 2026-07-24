@@ -35,7 +35,7 @@ const journeyData: TimelineItem[] = [
   },
   {
     year: 'Jun 2025 - Sep 2025',
-    title: 'Graduate Research Assistant',
+    title: 'Research Assistant',
     company: 'University of Reading',
     companyUrl: 'https://www.reading.ac.uk/meteorology',
     description: 'Conducted analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin using multi-network observational datasets from 25+ weather stations. Applied Python for statistical analysis, data quality control and geospatial visualisation, contributing to urban climate resilience research.',
