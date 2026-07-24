@@ -18,23 +18,35 @@ interface TimelineItem {
 
 const journeyData: TimelineItem[] = [
   {
-    year: 'Jan 2026 - Present',
-    title: 'Board Member - Board on Enterprise Decision Support (BEDS)',
-    company: 'American Meteorological Society',
-    description: 'Contributing to strategic initiatives and decision support for the meteorological community.',
+    year: 'Jul 2026 - Present',
+    title: 'Research Assistant',
+    company: 'National University of Singapore (NUS)',
+    companyUrl: 'https://sites.google.com/view/mengzeli/bio',
+    description: 'Contributing to ongoing research on atmospheric composition and air quality in collaboration with Prof. Mengze Li and researchers from Italy. Conducting analysis of VOC observational data from the EBAS database, focusing on temperature-dependent emission patterns in Bologna, Italy.',
     highlight: true
   },
   {
-    year: 'June 2025 - Sep 2025',
-    title: 'Research Assistant',
-    company: 'University of Reading',
-    description: 'Conducted a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin. Utilised Python for statistical analysis and geospatial visualisation of multi-network datasets from 25+ weather stations to assess urban climate resilience.',
+    year: 'Jan 2026 - Present',
+    title: 'Board Member — Board on Enterprise Decision Support (BEDS)',
+    company: 'American Meteorological Society',
+    companyUrl: 'https://www.ametsoc.org/ams/about-ams/ams-commissions-boards-and-committees/',
+    description: 'Participating in board-level strategic planning and engaging in discussions connecting the scientific community with operational decision-makers across government, industry and climate services to translate weather and climate science into actionable insights.',
+    highlight: false
   },
   {
-    year: 'June 2025 - July 2025',
+    year: 'Jun 2025 - Sep 2025',
+    title: 'Graduate Research Assistant',
+    company: 'University of Reading',
+    companyUrl: 'https://www.reading.ac.uk/meteorology',
+    description: 'Conducted analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin using multi-network observational datasets from 25+ weather stations. Applied Python for statistical analysis, data quality control and geospatial visualisation, contributing to urban climate resilience research.',
+    highlight: false
+  },
+  {
+    year: 'Jun 2025 - Jul 2025',
     title: 'Summer Assistant',
     company: 'UPP Ltd',
-    description: 'Managed operational tasks and cross-team coordination in a fast-paced environment. Focused on accuracy, problem-solving, and meeting strict operational deadlines.',
+    description: 'Managed operational tasks and cross-team coordination in a fast-paced environment. Focused on accuracy, problem-solving and meeting strict operational deadlines.',
+    highlight: false
   },
 ];
 

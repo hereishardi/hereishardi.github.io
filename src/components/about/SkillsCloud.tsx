@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react'; // Add React here
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Magnetic from '@/components/animations/magnetic';
@@ -14,19 +14,18 @@ interface Skill {
 const skills: Skill[] = [
   // Atmospheric Data & Analysis
   { name: 'Meteorological Data Analysis', category: 'data' },
-  { name: 'Statistical Data Analysis', category: 'data' },
   { name: 'Climate Data Interpretation', category: 'data' },
-  { name: 'Synoptic & Model Chart Interpretation', category: 'data' },
+  { name: 'Atmospheric Composition Analysis', category: 'data' },
+  { name: 'Statistical Data Analysis', category: 'data' },
 
   // Modelling & Research
   { name: 'Weather and Climate Models (WRF, OpenIFS)', category: 'modelling' },
-  { name: 'Reanalysis of Data (ERA5, GloFAS)', category: 'modelling' },
+  { name: 'Reanalysis Datasets (ERA5, GloFAS)', category: 'modelling' },
 
   // Programming & Technical
   { name: 'Python', category: 'technical' },
-  { name: 'Matlab', category: 'technical' },
-  { name: 'SQL', category: 'technical' },
-  { name: 'QGIS', category: 'technical' },
+  { name: 'R', category: 'technical' },
+  { name: 'Geospatial Visualisation (QGIS, Google Earth)', category: 'technical' },
   { name: 'Linux', category: 'technical' },
 
   // Scientific Tools
@@ -35,19 +34,19 @@ const skills: Skill[] = [
   { name: 'Mendeley', category: 'tools' },
 
   // Professional
-  { name: 'Problem Solving', category: 'professional' },
   { name: 'Effective Communication', category: 'professional' },
+  { name: 'Scientific Writing and Reporting', category: 'professional' },
   { name: 'Teamwork', category: 'professional' },
   { name: 'Adaptability', category: 'professional' },
-  { name: 'Time Management', category: 'professional' }
+  { name: 'Time Management', category: 'professional' },
 ];
 
 const categoryColors: Record<string, string> = {
-  data: 'bg-blue-600/15 text-blue-800 border-blue-600/30 hover:bg-blue-600/25', // Atmospheric/Oceanic Blue
-  modelling: 'bg-indigo-600/15 text-indigo-800 border-indigo-600/30 hover:bg-indigo-600/25', // Deep Science Indigo
-  technical: 'bg-emerald-600/15 text-emerald-800 border-emerald-600/30 hover:bg-emerald-600/25', // Technical Green
-  tools: 'bg-slate-600/15 text-slate-800 border-slate-600/30 hover:bg-slate-600/25', // Tool Gray
-  professional: 'bg-amber-600/15 text-amber-800 border-amber-600/30 hover:bg-amber-600/25' // Warm Amber
+  data: 'bg-blue-600/15 text-blue-800 border-blue-600/30 hover:bg-blue-600/25',
+  modelling: 'bg-violet-600/15 text-violet-800 border-violet-600/30 hover:bg-violet-600/25',
+  technical: 'bg-emerald-600/15 text-emerald-800 border-emerald-600/30 hover:bg-emerald-600/25',
+  tools: 'bg-slate-600/15 text-slate-800 border-slate-600/30 hover:bg-slate-600/25',
+  professional: 'bg-amber-600/15 text-amber-800 border-amber-600/30 hover:bg-amber-600/25'
 };
 
 export default function SkillsCloud() {
@@ -60,7 +59,6 @@ export default function SkillsCloud() {
 
     if (!container || !skillElements.length) return;
 
-    // Staggered reveal animation
     gsap.fromTo(
       skillElements,
       {
@@ -113,7 +111,7 @@ export default function SkillsCloud() {
           ))}
       </div>
 
-      {/* Row 2: Professional Skills (New Line with NO extra gaps) */}
+      {/* Row 2: Professional Skills */}
       <div className="flex flex-wrap justify-center gap-3">
         {skills
           .filter((s) => s.category === 'professional')
@@ -121,7 +119,6 @@ export default function SkillsCloud() {
             <Magnetic key={skill.name}>
               <div
                 ref={(el) => {
-                  // Keep the index continuous for GSAP animations
                   const index = skills.filter((s) => s.category !== 'professional').length + i;
                   if (el) skillsRef.current[index] = el;
                 }}

@@ -6,14 +6,14 @@ import Link from 'next/link';
 
 export default function Description() {
   const phrase1 =
-    'A meteorologist transforming complex atmospheric data into decision-ready insights for climate resilience and operational services.';
+    'A meteorologist and climate scientist transforming complex atmospheric and climate data into decision-ready insights for climate resilience and operational services.';
 
   const phrase2 =
-    'Passionate about advancing our capacity to monitor and model the atmosphere ' +
-    'at the intersection of physical science and modern tech. Whether contributing ' +
-    'to AI-driven atmospheric projects, climate research, or operational services. ' +
-    'I am dedicated to building the advanced tools that enhance the accuracy, ' +
-    'reliability, and impact of weather data for a resilient future.';
+   'Passionate about advancing our capacity to monitor and model the atmosphere ' +
+'and translating climate science into meaningful action through research, ' +
+'communication and collaboration. I am dedicated to enhancing ' +
+'the accuracy and reliability of weather and climate data for more informed ' +
+'forecasting and contributing to a climate-resilient world.';
 
   const description = useRef(null);
   const isInView = useInView(description);
@@ -61,14 +61,14 @@ export default function Description() {
             animate={isInView ? 'open' : 'closed'}
             className="m-0 pb-6 font-medium sm:text-2xl"
           >
-            Recent MSc graduate from the University of Reading.
+            Currently working as a Research Assistant at the National University of Singapore (NUS), contributing to research on atmospheric composition and air quality.
           </motion.p>
           <motion.p
             variants={opacity}
             animate={isInView ? 'open' : 'closed'}
             className="m-0 text-lg font-light leading-relaxed"
           >
-            My technical expertise lies in the development of Python-based frameworks for automated data quality control, time-series analysis, and geospatial visualisation.
+            My expertise spans atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools.
           </motion.p>
         </div>
 

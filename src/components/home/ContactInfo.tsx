@@ -22,7 +22,7 @@ export default function ContactInfo() {
         const cities = [
           { name: 'New York', lat: 40.7128, lon: -74.0060 },
           { name: 'London', lat: 51.5074, lon: -0.1278 },
-          { name: 'Delhi', lat: 28.6139, lon: 77.2090 }
+          { name: 'Tokyo', lat: 35.6762, lon: 139.6503 }
         ];
 
         const results = await Promise.all(cities.map(async (city) => {
@@ -106,12 +106,10 @@ export default function ContactInfo() {
         <div className="mt-20 flex flex-col justify-between p-5 2xs:mt-52 sm:mx-[100px] sm:mt-48 sm:flex-row items-start">
           <div className="flex flex-col gap-2 mb-10 sm:max-w-md">
             <p className="text-base font-medium">
-              Meteorologist | Climate Researcher | Atmospheric Data Specialist
+              Meteorologist | Climate Scientist | Early Career Researcher 
             </p>
             <p className="text-sm opacity-70">
-              Passionate about merging atmospheric science with cutting-edge tech to
-              provide solutions that address our changing climate and create a
-              more sustainable world.
+              Passionate about merging atmospheric and climate science with modern research tools to provide solutions that address our changing climate and create a more sustainable world.
             </p>
           </div>
 
@@ -161,12 +159,12 @@ export default function ContactInfo() {
                 </Magnetic>
                 <Magnetic>
                   <Link
-                    href="https://www.instagram.com/hereishardi/"
+                    href="https://substack.com/@lettersfromhardi"
                     className={animatedUnderlineStyle}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Instagram
+                    Substack
                   </Link>
                 </Magnetic>
               </div>

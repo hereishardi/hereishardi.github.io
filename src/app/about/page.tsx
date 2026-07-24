@@ -36,7 +36,7 @@ export default function About() {
             <div className="space-y-8 lg:col-span-3">
               <AnimatedSection animation="fade-up">
                 <TextReveal
-                  text="A Meteorologist with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a career as a weather expert."
+                  text="A Meteorologist and Climate Scientist with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather expert."
                   className="text-xl font-medium leading-relaxed text-foreground/90 sm:text-2xl"
                   as="p"
                   scrub={false}
@@ -79,7 +79,7 @@ export default function About() {
                     At <span className="font-semibold text-foreground">University of Reading</span>, I completed an <span className="font-semibold text-foreground">MSc in Applied Meteorology and Climate</span>, a world-leading program that advanced my knowledge of atmospheric theory with practical forecasting systems.
                   </p>
                   <p>
-                    For my dissertation, I performed a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin, utilising reanalysis datasets to provide insights into urban climate resilience.
+                    For my dissertation, I performed a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin, utilising utilising multi-station observational datasets and Python-based analysis to characterise urban-rural temperature variability and contribute to climate resilience research.
                   </p>
                   <p>
                     Previously, I earned my <span className="font-semibold text-foreground">BSc in Physics</span>, which provided the foundational training in mathematical modeling, thermodynamics, and fluid dynamics necessary for complex atmospheric research.
