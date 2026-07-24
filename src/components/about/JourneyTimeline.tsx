@@ -21,7 +21,7 @@ const journeyData: TimelineItem[] = [
     year: 'Jul 2026 - Present',
     title: 'Research Assistant',
     company: 'National University of Singapore (NUS)',
-    companyUrl: 'https://sites.google.com/view/mengzeli/bio',
+    companyUrl: 'https://www.nus.edu.sg/',
     description: 'Contributing to ongoing research on atmospheric composition and air quality in collaboration with Prof. Mengze Li and researchers from Italy. Conducting analysis of VOC observational data from the EBAS database, focusing on temperature-dependent emission patterns in Bologna, Italy.',
     highlight: true
   },

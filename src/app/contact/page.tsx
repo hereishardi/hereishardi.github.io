@@ -46,7 +46,7 @@ export default function Contact() {
 
         {/* Title: Stacked below name */}
         <div className="flex flex-col items-center uppercase">
-          <p className="m-0 text-gray-400">Meteorologist</p>
+          <p className="m-0 text-gray-400"></p>
 
           {/* Links: Using the original TextDisperse effect */}
           <div className="flex gap-10 mt-4">
