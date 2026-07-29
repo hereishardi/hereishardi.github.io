@@ -15,7 +15,7 @@ export default function ActivityPage() {
           <h1 className="mb-4 text-5xl font-black tracking-tight text-gray-900 md:text-7xl uppercase">
           </h1>
           <p className="text-2xl font-medium text-blue-600/70">
-            Professional certifications and courses
+            Professional Certifications and Courses
           </p>
         </div>
 
