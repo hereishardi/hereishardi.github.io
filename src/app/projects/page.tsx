@@ -34,7 +34,7 @@ const myProjects = [
     title: 'Met Office: Forecasting Module',
     description: 'As part of the Met Office Forecasting module, I worked in a small team to deliver climate analysis and weather forecast briefings to a mock client, including students and scientists. I translated complex forecast and climate model outputs into clear, accessible language for different audiences, while discussing forecast uncertainty with experts. Our team received very positive feedback for providing clear briefings. This experience strengthened my ability to communicate weather and climate information effectively under time constraints',
     tag: ['Operational Forecasting & Meteorological Communication'],
-    images: ['/images/gallery/Met_4.jpg'],
+    images: ['/images/gallery/Met_Office.jpg'],
   },
 ];
 
@@ -63,7 +63,7 @@ export default function MyNewProjectsPage() {
         <div className="max-w-6xl mx-auto">
           <header className="mb-16">
             <h1 className="text-6xl font-black uppercase tracking-tighter">My Work</h1>
-            <p className="text-gray-500 mt-4 text-xl">Research and coursework</p>
+            <p className="text-gray-500 mt-4 text-xl"></p>
           </header>
 
           <div className="grid grid-cols-1 gap-24">
