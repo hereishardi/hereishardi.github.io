@@ -12,7 +12,7 @@ interface TimelineItem {
   title: string;
   company: string;
   companyUrl?: string;
-  description: string;
+  description: string[];
   highlight?: boolean;
 }
 
@@ -21,31 +21,42 @@ const journeyData: TimelineItem[] = [
     year: 'Jul 2026 - Present',
     title: 'Research Assistant',
     company: 'National University of Singapore (NUS)',
-    companyUrl: 'https://www.nus.edu.sg/',
-    description: 'Contributing to ongoing research on atmospheric composition and air quality in collaboration with Prof. Mengze Li and researchers from Italy. Conducting analysis of VOC observational data from the EBAS database, focusing on temperature-dependent emission patterns in Bologna, Italy.',
+    description: [
+      'Collaborating with an international and interdisciplinary research team from Singapore and Italy',
+      'Analysing VOC (Volatile Organic Compound) observational data from the EBAS database, focusing on temperature-dependent emission patterns in Bologna, Italy',
+      'Scheduling team meetings and preparing summaries of relevant articles and datasets for the research group ongoing work',
+      'Processing and quality-controlling atmospheric datasets using Python, supporting the analysis of anthropogenic VOC emissions and their role in urban ozone formation and air quality deterioration'
+    ],
     highlight: true
   },
   {
     year: 'Jan 2026 - Present',
-    title: 'Board Member — Board on Enterprise Decision Support (BEDS)',
+    title: 'Board Member for Board on Enterprise Decision Support (BEDS)',
     company: 'American Meteorological Society',
-    companyUrl: 'https://www.ametsoc.org/ams/about-ams/ams-commissions-boards-and-committees/',
-    description: 'Participating in board-level strategic planning and engaging in discussions connecting the scientific community with operational decision-makers across government, industry and climate services to translate weather and climate science into actionable insights.',
+    description: [
+      'Contributing to board-level strategic planning, connecting the scientific community with operational decision-makers across government, industry and climate services.',
+      'Supporting strategic initiatives that translate atmospheric and climate data into actionable guidance for societal applications, including emergency management and operational climate services.'
+    ],
     highlight: false
   },
   {
     year: 'Jun 2025 - Sep 2025',
     title: 'Research Assistant',
     company: 'University of Reading',
-    companyUrl: 'https://www.reading.ac.uk/meteorology',
-    description: 'Conducted analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin using multi-network observational datasets from 25+ weather stations. Applied Python for statistical analysis, data quality control and geospatial visualisation, contributing to urban climate resilience research.',
+    description: [
+      'Dissertation: Analysis of Canopy Layer Urban Heat Island (CL-UHI) Intensity in Berlin (Supervisor: Russell Glazer and Sue Grimmond)',
+      'Investigated CL-UHI intensity in Berlin for April and August 2022 and analysed multi-network observational datasets from 25+ urban, suburban, and rural weather stations to assess urban-rural temperature variability',
+      'Applied Python for statistical analysis, data quality control, and geospatial visualisation to characterise the spatial and temporal variability of the CL-UHI, contributing evidence relevant to energy-efficient urban planning and climate resilience strategies'
+    ],
     highlight: false
   },
   {
     year: 'Jun 2025 - Jul 2025',
     title: 'Summer Assistant',
     company: 'UPP Ltd',
-    description: 'Managed operational tasks and cross-team coordination in a fast-paced environment. Focused on accuracy, problem-solving and meeting strict operational deadlines.',
+    description: [
+      'Supported daily operations and worked closely with team members to manage tasks efficiently in a fast-paced environment'
+    ],
     highlight: false
   },
 ];
@@ -122,8 +133,8 @@ export default function JourneyTimeline() {
               if (el) itemsRef.current[i] = el;
             }}
             className={`relative flex items-start gap-8 ${i % 2 === 0
-              ? 'md:flex-row md:text-right'
-              : 'md:flex-row-reverse md:text-left'
+              ? 'md:flex-row'
+              : 'md:flex-row-reverse'
               }`}
           >
             {/* Content */}
@@ -155,7 +166,11 @@ export default function JourneyTimeline() {
                     @{item.company}
                   </span>
                 )}
-                <p className="text-foreground/70">{item.description}</p>
+                <ul className="list-disc space-y-1 pl-5 text-foreground/70">
+                  {item.description.map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 

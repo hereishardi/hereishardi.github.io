@@ -10,10 +10,8 @@ export default function Description() {
 
   const phrase2 =
    'Passionate about advancing our capacity to monitor and model the atmosphere ' +
-'and translating climate science into meaningful action through research, ' +
-'communication and collaboration. I am dedicated to enhancing ' +
-'the accuracy and reliability of weather and climate data for more informed ' +
-'forecasting and contributing to a climate-resilient world.';
+'and translating atmospheric and climate science into meaningful action through research, ' +
+'communication and collaboration.';
 
   const description = useRef(null);
   const isInView = useInView(description);
@@ -68,7 +66,7 @@ export default function Description() {
             animate={isInView ? 'open' : 'closed'}
             className="m-0 text-lg font-light leading-relaxed"
           >
-            My expertise spans atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools.
+            My expertise lies in atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools.
           </motion.p>
         </div>
 

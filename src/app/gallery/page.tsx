@@ -11,12 +11,14 @@ const getImagePath = (path: string) => {
   return `${basePath}${path}`;
 };
 
+const SLIDESHOW_INTERVAL = 1500; // milliseconds between image changes - adjust as needed
+
 const galleryItems = [
   {
     id: 'dorset-2024',
     title: "Field Trip - Dorset, UK",
     date: "Oct '24",
-    description: "Conducted radiosonde launches and recorded meteorological data at multiple field sites.",
+    description: "Conducted radiosonde launches and managed the collection and verification of meteorological observational data across multiple field sites",
     images: [
       '/images/gallery/Dorset_1.jpg',
       '/images/gallery/Dorset_2.jpg',
@@ -27,9 +29,9 @@ const galleryItems = [
   },
   {
     id: 'ruao-2024',
-    title: "Case Study at RUAO - Reading, UK",
+    title: "Case Study at Reading University Atmospheric Observatory (RUAO) - Reading, UK",
     date: "Nov '24",
-    description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for Boundary Layer Module.",
+    description: "Calculated surface-layer heat and momentum fluxes using in-situ eddy correlation and mast data for a Boundary Layer Meteorology case study",
     images: [
       '/images/gallery/RUAO_1.jpg',
       '/images/gallery/RUAO_2.jpg',
@@ -41,20 +43,20 @@ const galleryItems = [
     id: 'thames-2025',
     title: "Thames River Visit - Reading",
     date: "Feb '25",
-    description: "Hydrological monitoring and river-atmosphere interactions as a part of a coursework for Flood module.",
+    description: "Analysed hydrological monitoring and river-atmosphere interactions for Flood module coursework",
     images: [
       '/images/gallery/Thames_1.jpg',
       '/images/gallery/Thames_2.jpg',
       '/images/gallery/Thames_3.jpg',
       '/images/gallery/Thames_4.jpg'
     ],
-    tags: ['Hydrometeorology']
+    tags: ['Hydro-meteorology']
   },
   {
     id: 'ecmwf-2025',
     title: "ECMWF Visit - Reading",
     date: "Mar '25",
-    description: "Gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS.",
+    description: "Visited  ECMWF (European Centre for Medium-Range Weather Forecasts) and gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS",
     images: [
       '/images/gallery/ECMWF_1.jpg',
       '/images/gallery/ECMWF_2.jpg',
@@ -67,7 +69,7 @@ const galleryItems = [
     id: 'met-office-2025',
     title: "Met Office Visit - Exeter, UK",
     date: "July '25",
-    description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ.",
+    description: "Attended the 10th UK Climate Dynamics Workshop at the Met Office HQ in Exeter and participated in discussions on the latest advancements in climate science",
     images: [
       '/images/gallery/Metoffice_1.jpg',
       '/images/gallery/Metoffice_2.jpg',
@@ -78,20 +80,23 @@ const galleryItems = [
   {
     id: 'uor-met',
     title: "Meteorology Department - University of Reading",
-    date: '2024 - 2025',
-    description: "Academic life at one of the best uni for atmospheric science.",
+    date: 'Sep 2024 - Sep 2025',
+    description: "Academic life at one of the best uni for atmospheric science in the UK",
     images: [
       '/images/gallery/Met_1.jpg',
       '/images/gallery/Met_2.jpg',
       '/images/gallery/Met_3.jpg',
+      '/images/gallery/Met_4.jpeg',
+      '/images/gallery/Met_5.jpeg',
+      '/images/gallery/Met_6.jpeg',
+      '/images/gallery/Met_7.jpg'
     ],
-    tags: ['Academic', 'UoR']
+    tags: ['Academic Life', 'UoR']
   },
   {
     id: 'skies-clouds',
     title: "More pretty skies and clouds!!",
-    description: "Capturing the beauty of the sky and atmosphere all around!",
-    date: "2024 - 2025",
+    description: "Capturing the beauty of the sky and atmosphere all around the world!",
     images: [
       '/images/gallery/Other_1.jpg',
       '/images/gallery/Other_2.jpg',
@@ -109,12 +114,13 @@ const galleryItems = [
 function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
   const startSlideshow = () => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % item.images.length);
-    }, 900);
+    }, SLIDESHOW_INTERVAL);
   };
 
   const stopSlideshow = () => {
@@ -126,14 +132,33 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
 
   React.useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
-      startSlideshow();
-    }
-    return () => stopSlideshow();
+    if (!isTouchDevice) return;
+
+    const node = cardRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startSlideshow();
+        } else {
+          stopSlideshow();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      stopSlideshow();
+    };
   }, []);
 
   return (
     <div
+      ref={cardRef}
       onMouseEnter={startSlideshow}
       onMouseLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
@@ -159,7 +184,7 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
           <h3 className="text-lg font-bold text-gray-900 leading-tight">{item.title}</h3>
           <span className="text-[10px] font-bold text-gray-400 uppercase">{item.date}</span>
         </div>
-        <p className="text-xs text-gray-500 mb-4 line-clamp-2">{item.description}</p>
+        <p className="text-xs text-gray-500 mb-4">{item.description}</p>
         <div className="flex flex-wrap gap-2">
           {item.tags.map(tag => (
             <span key={tag} className="px-2 py-0.5 text-[9px] bg-blue-50 text-blue-600 rounded-full font-bold uppercase tracking-tighter">

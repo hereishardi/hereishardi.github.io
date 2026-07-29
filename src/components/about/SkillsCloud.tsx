@@ -26,7 +26,7 @@ const skills: Skill[] = [
   { name: 'Python', category: 'technical' },
   { name: 'R', category: 'technical' },
   { name: 'Geospatial Visualisation (QGIS, Google Earth)', category: 'technical' },
-  { name: 'Linux', category: 'technical' },
+  { name: 'Webpage Creation & Development', category: 'technical' },
 
   // Scientific Tools
   { name: 'LaTeX', category: 'tools' },
@@ -37,7 +37,7 @@ const skills: Skill[] = [
   { name: 'Effective Communication', category: 'professional' },
   { name: 'Scientific Writing and Reporting', category: 'professional' },
   { name: 'Teamwork', category: 'professional' },
-  { name: 'Adaptability', category: 'professional' },
+  { name: 'Adaptability to different time zones', category: 'professional' },
   { name: 'Time Management', category: 'professional' },
 ];
 

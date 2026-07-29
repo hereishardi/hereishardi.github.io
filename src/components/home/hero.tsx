@@ -12,7 +12,7 @@ export default function Hero() {
         src={getImagePath("/images/gallery/Climate_Strip.png")}
         alt="Climate Warming Stripes"
         fill
-        className="object-cover object-center opacity-100 brightness-120"
+        className="object-contain object-center opacity-100 brightness-120 md:object-cover"
         priority
         unoptimized
       />

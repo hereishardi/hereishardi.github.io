@@ -9,7 +9,7 @@ import JourneyTimeline from '@/components/about/JourneyTimeline';
 import SkillsCloud from '@/components/about/SkillsCloud';
 import ContrastCursor from '@/components/animations/cursor/contrastCursor';
 
-export default function About() {
+export default function About(): React.JSX.Element {
   return (
     <div className="relative overflow-hidden">
       <Layout title="About Me" center>
@@ -36,7 +36,7 @@ export default function About() {
             <div className="space-y-8 lg:col-span-3">
               <AnimatedSection animation="fade-up">
                 <TextReveal
-                  text="A Meteorologist and Climate Scientist with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather expert."
+                  text=" A Meteorologist and Climate Scientist, with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather expert."
                   className="text-xl font-medium leading-relaxed text-foreground/90 sm:text-2xl"
                   as="p"
                   scrub={false}
@@ -49,7 +49,7 @@ export default function About() {
                     My Vision
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into actionable insights for a resilient future.
+                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into insights that support operational services and climate-resilient decisions.
                   </p>
                 </div>
               </AnimatedSection>
@@ -60,7 +60,7 @@ export default function About() {
                     Beyond Weather
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    Outside of Meteorology, I love to run and read - I spend my free time exploring & reading about neuroscience and psychology to understand the systems that govern our mind just as I study the systems that govern our skies.
+                    I love to run and read. I spend my free time reading about neuroscience and psychology to understand the systems that govern our mind just as I study the systems that govern our skies. I also write on Substack (you can check out the link below).
                   </p>
                 </div>
               </AnimatedSection>
@@ -76,18 +76,32 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-foreground/70">
                   <p>
-                    At <span className="font-semibold text-foreground">University of Reading</span>, I completed an <span className="font-semibold text-foreground">MSc in Applied Meteorology and Climate</span>, a world-leading program that advanced my knowledge of atmospheric theory with practical forecasting systems.
+                    <span className="font-semibold text-foreground">MSc in Applied Meteorology and Climate - University of Reading</span>
                   </p>
                   <p>
-                    For my dissertation, I performed a high-resolution analysis of Canopy Layer Urban Heat Island (CL-UHI) intensity in Berlin, utilising utilising multi-station observational datasets and Python-based analysis to characterise urban-rural temperature variability and contribute to climate resilience research.
+                    <span className="font-semibold text-foreground">Selected Modules: </span>
+                    Fundamentals of Weather and Climate, Data Analysis for Climate and Forecasting Systems, Synoptic and Boundary Layer Meteorology, Remote Sensing, Extreme Weather and Flood Risk
                   </p>
                   <p>
-                    Previously, I earned my <span className="font-semibold text-foreground">BSc in Physics</span>, which provided the foundational training in mathematical modeling, thermodynamics, and fluid dynamics necessary for complex atmospheric research.
+                    <span className="font-semibold text-foreground">Dissertation: </span>
+                    Analysis of Canopy Layer Urban Heat Island (CL-UHI) Intensity in Berlin
                   </p>
+                  <p>
+                    <span className="font-semibold text-foreground">BSc in Physics - Gujarat University</span>
+                  </p>
+                  
+                  <p>
+                    <span className="font-semibold text-foreground">Selected Modules: </span>
+                    Classical and Quantum Mechanics, Mathematical Physics, Electromagnetism, Solid State Physics and Nuclear Physics
+                  </p>
+                  <p>
+                    Through my academic training in atmospheric science and physics, I learned to apply mathematical and statistical methods to weather and climate datasets. My physics background gave me a strong grounding in the fundamental principles behind atmospheric processes, while my MSc gave me hands-on experience in weather and flood forecasting, remote sensing, extreme weather analysis and climate data analysis. 
+                    </p>
                 </div>
               </div>
             </AnimatedSection>
           </section>
+                  
 
           {/* Journey Section */}
           <section className="py-16">
