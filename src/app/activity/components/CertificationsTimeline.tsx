@@ -13,7 +13,7 @@ const certificationsData = [
     { title: 'Climate Modelling Course', issuer: 'By Academic Launchpad', date: 'Mar 2026' },
     { title: 'Training Course on Calibration', issuer: 'By World Meteorological Organization (WMO)', date: 'Dec 2025' },
     { title: 'Integrated Drought Management: Monitoring and Early Warning', issuer: 'By Cap-Net', date: 'Nov 2025' },
-    { title: 'Numerical Weather Prediction: Hands-on WRF Modelling', issuer: 'By CSEE — Centre for Sustainable Environment and Education', date: 'Oct 2025' },
+    { title: 'Numerical Weather Prediction: Hands-on WRF Modelling', issuer: 'By Centre for Sustainable Environment and Education (CSEE)', date: 'Oct 2025' },
     { title: 'Weather Forecasting Module', issuer: 'By Met Office', date: 'Jun 2025' },
     { title: 'Machine Learning Using Python Programming', issuer: 'By M. G. Science Institute', date: 'May 2024' },
     { title: 'Data Analysis Using Python Programming', issuer: 'By M. G. Science Institute', date: 'May 2024' },
