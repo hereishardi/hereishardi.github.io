@@ -15,19 +15,19 @@ const myProjects = [
   {
     title: 'Multi-Sensor Atmospheric Monitoring & Quantitative Retrieval',
     description: `I demonstrated technical proficiency in processing complex meteorological datasets by developing a Python-based script to analyse extreme convective event. Utilising matrix algebra and maximum a posteriori probability solutions, I successfully performed a joint retrieval of temperature and humidity profiles across 124 pressure levels from hyperspectral infrared data. I validated these results through a qualitative and quantitative analysis of multi-channel satellite data, effectively mapping the lifecycle of intense thunderstorms.`,
-    tag: 'GIS & Physical Analysis',
+    tag: 'Remote Sensing Module: Coursework',
     images: ['/images/gallery/RS_1.jpg', '/images/gallery/RS_2.jpg'],
   },
   {
     title: 'Ensemble Hydrograph Analysis & Humanitarian Risk Assessment',
     description: `I acted as a Flood Forecaster to provide critical decision support for Red Cross emergency response teams during a simulated extreme flooding event in the Burdekin River, Australia. By analysing GloFAS ensemble hydrographs and ECMWF-ENS forecasts, I quantified uncertainty and identified "High" to "Severe" flood threshold breaches with a 10-day lead time. This project demonstrated my ability to bridge the gap between complex hydrological modeling and humanitarian disaster risk reduction (DRR) while demonstrating effective meteorological communication.`,
-    tag: 'Flood-risk & Crisis Management',
+    tag: 'Flood Module Assessment: Flood-risk & Crisis Management as a Flood Forecaster',
     images: ['/images/gallery/Flood_1.png', '/images/gallery/Flood_2.png', '/images/gallery/Flood_3.png'],
   },
   {
-    title: 'Analysis of Mesoscale Instabilities in Extra-Tropical Cyclones',
+    title: 'Analysis of Mesoscale Instabilities in Extra-Tropical Cyclone',
     description: `I performed a detailed synoptic reconstruction of "Cyclone Friedhelm," an explosive mid-latitude system, to identify the formation of 'Sting Jets' and high-momentum air streams. Using Met Office model charts, I analysed theta-w gradients and baroclinic zones to map the transition from frontal fracture to cloud head development. By evaluating descent-driven momentum transfer, I identified the drivers of severe surface damage, showcasing my ability to interpret complex physical processes.`,
-    tag: ['Tropical Cyclones & Extreme Weather Analysis'],
+    tag: ['Extreme Weather Module: Case Study'],
     images: ['/images/gallery/MTMTEA_1.png'],
   },
   {
