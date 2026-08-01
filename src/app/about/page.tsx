@@ -36,7 +36,7 @@ export default function About(): React.JSX.Element {
             <div className="space-y-8 lg:col-span-3">
               <AnimatedSection animation="fade-up">
                 <TextReveal
-                  text=" A Meteorologist and Climate Scientist, with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather expert."
+                  text=" A Meteorologist and Climate Scientist, with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather and climate expert."
                   className="text-xl font-medium leading-relaxed text-foreground/90 sm:text-2xl"
                   as="p"
                   scrub={false}
@@ -49,7 +49,7 @@ export default function About(): React.JSX.Element {
                     My Vision
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into insights that support operational services and climate-resilient decisions.
+                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into insights that support accurate forecasting and climate-resilient decisions, and to help coordinate the international research that makes them possible.
                   </p>
                 </div>
               </AnimatedSection>
@@ -60,7 +60,7 @@ export default function About(): React.JSX.Element {
                     Beyond Weather
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    I love to run and read. I spend my free time reading about neuroscience and psychology to understand the systems that govern our mind just as I study the systems that govern our skies. I also write on Substack (you can check out the link below).
+                    I love to run and read. I spend my free time reading about neuroscience and psychology to understand the systems that govern our mind just as I study the systems that govern our skies. I also write on Substack (link given below).
                   </p>
                 </div>
               </AnimatedSection>
@@ -95,7 +95,7 @@ export default function About(): React.JSX.Element {
                     Classical and Quantum Mechanics, Mathematical Physics, Electromagnetism, Solid State Physics and Nuclear Physics
                   </p>
                   <p>
-                    Through my academic training in atmospheric science and physics, I learned to apply mathematical and statistical methods to weather and climate datasets. My physics background gave me a strong grounding in the fundamental principles behind atmospheric processes, while my MSc gave me hands-on experience in weather and flood forecasting, remote sensing, extreme weather analysis and climate data analysis. 
+                    
                     </p>
                 </div>
               </div>
