@@ -36,7 +36,7 @@ export default function About(): React.JSX.Element {
             <div className="space-y-8 lg:col-span-3">
               <AnimatedSection animation="fade-up">
                 <TextReveal
-                  text=" A Meteorologist and Climate Scientist, with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather and climate expert."
+                  text="A Meteorologist and Climate Scientist, with a background in Physics. I turned my childhood obsession with observing clouds and watching sunsets into a weather and climate expert."
                   className="text-xl font-medium leading-relaxed text-foreground/90 sm:text-2xl"
                   as="p"
                   scrub={false}
