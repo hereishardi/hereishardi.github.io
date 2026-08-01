@@ -106,10 +106,10 @@ export default function ContactInfo() {
         <div className="mt-20 flex flex-col justify-between p-5 2xs:mt-52 sm:mx-[100px] sm:mt-48 sm:flex-row items-start">
           <div className="flex flex-col gap-2 mb-10 sm:max-w-md">
             <p className="text-base font-medium">
-              Meteorologist & Climate Scientist  
+              Hardi Chittaliya - Meteorologist & Climate Scientist 
             </p>
             <p className="text-sm opacity-70">
-              Passionate about merging atmospheric and climate science with modern research tools to provide solutions that address our changing climate and create a more sustainable world.
+             And when it rains on your parade, look up rather than down. Without the rain, there would be no rainbow." — Gilbert K. Chesterton
             </p>
           </div>
 

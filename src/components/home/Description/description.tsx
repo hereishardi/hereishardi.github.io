@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Description() {
   const phrase1 =
-    'A meteorologist and climate scientist working across atmospheric and climate research.';
+    'A meteorologist and climate scientist working across atmospheric and climate science research.';
 
   const phrase2 =
    'Passionate about advancing our understanding of the atmosphere and climate system ' +
