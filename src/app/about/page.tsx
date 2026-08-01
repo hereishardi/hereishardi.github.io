@@ -49,7 +49,10 @@ export default function About(): React.JSX.Element {
                     My Vision
                   </h3>
                   <p className="leading-relaxed text-foreground/70">
-                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to transform atmospheric and climate observations into insights that support accurate forecasting and climate-resilient decisions, and to help coordinate the international research that makes them possible.
+                    My journey began with a fascination for the complex systems of the sky. Today, I apply that same curiosity to to transform atmospheric and climate observations into insights that support operational services, international collaboration and climate-resilient decisions. 
+                  </p>
+                  <p className="leading-relaxed text-foreground/70">
+                    My expertise lies in atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools, alongside experience in coordinating international research collaborations.
                   </p>
                 </div>
               </AnimatedSection>
