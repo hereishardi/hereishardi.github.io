@@ -6,12 +6,12 @@ import Link from 'next/link';
 
 export default function Description() {
   const phrase1 =
-    'A meteorologist and climate scientist transforming complex atmospheric and climate data into decision-ready insights for climate resilience and operational services.';
+    'A meteorologist and climate scientist working across atmospheric and climate research, with experience supporting international science coordination, communication and outreach.';
 
   const phrase2 =
-   'Passionate about advancing our capacity to monitor and model the atmosphere ' +
-'and translating atmospheric and climate science into meaningful action through research, ' +
-'communication and collaboration.';
+   'Passionate about advancing our understanding of the atmosphere and climate system, ' +
+'and committed to translating that science into meaningful action ' +
+'through research, coordination and communication.';
 
   const description = useRef(null);
   const isInView = useInView(description);
@@ -66,7 +66,7 @@ export default function Description() {
             animate={isInView ? 'open' : 'closed'}
             className="m-0 text-lg font-light leading-relaxed"
           >
-            My expertise lies in atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools.
+            My expertise lies in atmospheric data analysis and climate science research, with technical proficiency in Python, reanalysis datasets and weather prediction tools, alongside experience in coordinating international research collaborations.
           </motion.p>
         </div>
 
