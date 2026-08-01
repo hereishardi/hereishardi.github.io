@@ -109,7 +109,7 @@ export default function ContactInfo() {
               Hardi Chittaliya - Meteorologist & Climate Scientist 
             </p>
             <p className="text-sm opacity-70">
-             And when it rains on your parade, look up rather than down. Without the rain, there would be no rainbow." — Gilbert K. Chesterton
+             &ldquo;And when it rains on your parade, look up rather than down. Without the rain, there would be no rainbow.&rdquo; — Gilbert K. Chesterton
             </p>
           </div>
 
