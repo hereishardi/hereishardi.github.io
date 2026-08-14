@@ -40,7 +40,7 @@ const galleryItems = [
   },
   {
     id: 'thames-2025',
-    title: "Thames River Visit - Reading",
+    title: "Thames River Visit - Reading, UK",
     date: "Feb '25",
     description: "Analysed hydrological monitoring and river-atmosphere interactions for Flood module coursework",
     images: [
@@ -53,7 +53,7 @@ const galleryItems = [
   },
   {
     id: 'ecmwf-2025',
-    title: "ECMWF Visit - Reading",
+    title: "ECMWF Visit - Reading, UK",
     date: "Mar '25",
     description: "Visited  ECMWF (European Centre for Medium-Range Weather Forecasts) and gained insights into operational flood forecasting and early warning systems, including GloFAS and EFAS",
     images: [
