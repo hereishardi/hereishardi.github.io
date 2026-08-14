@@ -10,8 +10,8 @@ export default function Description() {
 
   const phrase2 =
    'Passionate about advancing our understanding of the atmosphere and climate system ' +
-'to support accurate forecasting and climate-resilient decisions, ' +
-'and to help coordinate the international research that makes them possible.';
+'and committed to translating that science into meaningful action through research, coordination and communication to support accurate, climate-resilient decision-making, ' +
+'and to help coordinate the international research that makes it possible.';
 
   const description = useRef(null);
   const isInView = useInView(description);

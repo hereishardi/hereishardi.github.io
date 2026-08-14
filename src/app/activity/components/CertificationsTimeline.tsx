@@ -9,7 +9,10 @@ if (typeof window !== 'undefined') {
 }
 
 const certificationsData = [
-    { title: 'Understanding Climate Data', issuer: 'By European Centre for Medium-Range Weather Forecasts (ECMWF)', date: 'Jul 2026' },
+    { title: 'Introduction to Physical Oceanography and the Dynamics of Indian Ocean', issuer: 'Indian National Centre for Ocean Information Services (INCOIS)', date: 'Aug 2026' },
+    { title: 'Fundamentals of Ocean Forecasting', issuer: 'ICMPA-UNESCO Chair and Gulf of Guinea Ocean Sciences Summer School (GGOSSS)', date: 'Aug 2026' },
+    { title: 'Machine Learning for Earth Systems Modelling: Foundations and New Frontiers - Course 1', issuer: 'By European Centre for Medium-Range Weather Forecasts (ECMWF)', date: 'Aug 2026' },
+    { title: 'Understanding Climate Data', issuer: 'By European Centre for Medium-Range Weather Forecasts (ECMWF)', date: 'Aug 2026' },
     { title: 'Climate Modelling Course', issuer: 'By Academic Launchpad', date: 'Mar 2026' },
     { title: 'Training Course on Calibration', issuer: 'By World Meteorological Organization (WMO)', date: 'Dec 2025' },
     { title: 'Integrated Drought Management: Monitoring and Early Warning', issuer: 'By Cap-Net', date: 'Nov 2025' },

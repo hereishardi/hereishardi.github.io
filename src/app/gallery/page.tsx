@@ -5,10 +5,9 @@ import Image from 'next/image';
 import Layout from '@/components/layout';
 
 // Helper function to handle basePath for GitHub Pages
-const getImagePath = (path: string) => {
-  // Since your site is at hereishardi.github.io, basePath should be empty.
-  const basePath = '';
-  return `${basePath}${path}`;
+const getImagePath = (path: string, width = 800) => {
+  const fullUrl = `https://hereishardi.github.io${path}`;
+  return `https://images.weserv.nl/?url=${encodeURIComponent(fullUrl)}&w=${width}&q=80&output=webp`;
 };
 
 const SLIDESHOW_INTERVAL = 1500; // milliseconds between image changes - adjust as needed
