@@ -9,9 +9,9 @@ export default function Description() {
     'A meteorologist and climate scientist working across atmospheric and climate science research.';
 
   const phrase2 =
-   'Passionate about advancing our understanding of the atmosphere and climate system ' +
-'and committed to translating that science into meaningful action through research, coordination and communication to support accurate, climate-resilient decision-making, ' +
-'and to help coordinate the international research that makes it possible.';
+'Passionate about advancing our understanding of the atmosphere and climate system ' +
+'to support accurate forecasting and climate-resilient decisions, ' +
+'and to help coordinate the international research that makes it possible.'
 
   const description = useRef(null);
   const isInView = useInView(description);
