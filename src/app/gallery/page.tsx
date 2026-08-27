@@ -4,12 +4,6 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/layout';
 
-// Helper function to handle basePath for GitHub Pages
-const getImagePath = (path: string, width = 800) => {
-  const fullUrl = `https://hereishardi.github.io${path}`;
-  return `https://images.weserv.nl/?url=${encodeURIComponent(fullUrl)}&w=${width}&q=80&output=webp`;
-};
-
 const SLIDESHOW_INTERVAL = 1500; // milliseconds between image changes - adjust as needed
 
 const galleryItems = [
@@ -164,10 +158,10 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
         <Image
-          src={getImagePath(item.images[currentIndex])}
+          src={item.images[currentIndex]}
           alt={item.title}
           fill
-          unoptimized // CRITICAL: This fixes the "buffering" issue on GitHub Pages
+          unoptimized
           className="object-cover transition-opacity duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           priority={currentIndex === 0}

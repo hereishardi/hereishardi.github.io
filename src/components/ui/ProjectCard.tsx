@@ -49,6 +49,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
               src={imagePath}
               alt={title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className={`object-cover transition-transform duration-500 group-hover:scale-105 ${imageClassName}`}
               onError={() => setImageError(true)}
             />
