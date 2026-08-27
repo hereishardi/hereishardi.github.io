@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/layout';
 
@@ -108,8 +108,19 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const preloadedRef = useRef(false);
+
+  const preloadImages = () => {
+    if (preloadedRef.current) return;
+    preloadedRef.current = true;
+    item.images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  };
 
   const startSlideshow = () => {
+    preloadImages();
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % item.images.length);
@@ -123,7 +134,12 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
     }
   };
 
-  React.useEffect(() => {
+  // Clean up the interval if the card unmounts while a slideshow is running
+  useEffect(() => {
+    return () => stopSlideshow();
+  }, []);
+
+  useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (!isTouchDevice) return;
 
@@ -154,6 +170,8 @@ function HoverCarouselCard({ item }: { item: typeof galleryItems[0] }) {
       ref={cardRef}
       onMouseEnter={startSlideshow}
       onMouseLeave={stopSlideshow}
+      onPointerEnter={startSlideshow}
+      onPointerLeave={stopSlideshow}
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-500 hover:shadow-2xl"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
