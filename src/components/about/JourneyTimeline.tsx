@@ -24,7 +24,6 @@ const journeyData: TimelineItem[] = [
     description: [
       'Collaborating with an international and interdisciplinary research team from Singapore and Italy',
       'Analysing VOC (Volatile Organic Compound) observational data from the EBAS database, focusing on temperature-dependent emission patterns in Bologna, Italy',
-      'Scheduling team meetings and preparing summaries of relevant articles and datasets for the research group ongoing work',
       'Processing and quality-controlling atmospheric datasets using Python, supporting the analysis of anthropogenic VOC emissions and their role in urban ozone formation and air quality deterioration'
     ],
     highlight: true
